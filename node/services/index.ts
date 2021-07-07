@@ -1,7 +1,4 @@
 import customData from './customData'
-import setConfiguration from './orderFormConfiguration'
+import orderFormConfiguration from './orderFormConfiguration'
 
-export default {
-  customData,
-  orderFormConfiguration: setConfiguration,
-}
+export { customData, orderFormConfiguration }

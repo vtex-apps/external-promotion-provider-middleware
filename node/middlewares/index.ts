@@ -1,3 +1,4 @@
+import getOrderFormId from './getOrderFormId'
 import setupAppConfiguration from './setupAppConfiguration'
 
-export default { setupAppConfiguration }
+export { setupAppConfiguration, getOrderFormId }

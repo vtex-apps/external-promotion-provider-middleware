@@ -4,10 +4,10 @@ import type {
   RecorderState,
   EventContext,
 } from '@vtex/api'
-import { LRUCache, Service } from '@vtex/api'
+import { method, LRUCache, Service } from '@vtex/api'
 
 import { Clients } from './clients'
-import setupAppConfiguration from './middlewares'
+import { setupAppConfiguration, getOrderFormId } from './middlewares'
 
 const TIMEOUT_MS = 800
 
@@ -53,7 +53,11 @@ declare global {
 // Export a service that defines route handlers and client options.
 export default new Service({
   clients,
-  routes: {},
+  routes: {
+    orderFormNotification: method({
+      POST: [getOrderFormId],
+    }),
+  },
   events: {
     onAppInstalled: setupAppConfiguration,
   },
