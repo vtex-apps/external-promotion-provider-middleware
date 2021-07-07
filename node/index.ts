@@ -45,8 +45,9 @@ declare global {
     body: {}
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-empty-interface
-  interface State extends RecorderState {}
+  interface State extends RecorderState {
+    orderFormId: string
+  }
 }
 
 // Export a service that defines route handlers and client options.
