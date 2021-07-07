@@ -7,7 +7,7 @@ import type {
 import { LRUCache, Service } from '@vtex/api'
 
 import { Clients } from './clients'
-import setupAppConfigurations from './middlewares'
+import setupAppConfiguration from './middlewares'
 
 const TIMEOUT_MS = 800
 
@@ -54,6 +54,6 @@ export default new Service({
   clients,
   routes: {},
   events: {
-    onAppInstalled: setupAppConfigurations,
+    onAppInstalled: setupAppConfiguration,
   },
 })

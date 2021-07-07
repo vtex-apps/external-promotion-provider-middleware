@@ -1,6 +1,6 @@
 import orderFormConfigurationService from '../services/orderFormConfiguration'
 
-const setupAppConfigurations = async (
+const setupAppConfiguration = async (
   ctx: InstalledAppEvent,
   next: () => Promise<any>
 ) => {
@@ -15,4 +15,4 @@ const setupAppConfigurations = async (
   await next()
 }
 
-export default setupAppConfigurations
+export default setupAppConfiguration

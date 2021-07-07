@@ -1,3 +1,3 @@
-import setupAppConfigurations from './setupAppConfigurations'
+import setupAppConfiguration from './setupAppConfiguration'
 
-export default { setupAppConfigurations }
+export default { setupAppConfiguration }
