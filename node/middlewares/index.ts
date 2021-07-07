@@ -1,4 +1,3 @@
-import addCustomApp from './addCustomApp'
-import enableManualPrice from './enableManualPrice'
+import setupAppConfigurations from './setupAppConfigurations'
 
-export default { addCustomApp, enableManualPrice }
+export default { setupAppConfigurations }

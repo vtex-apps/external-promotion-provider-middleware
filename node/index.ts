@@ -7,8 +7,7 @@ import type {
 import { LRUCache, Service } from '@vtex/api'
 
 import { Clients } from './clients'
-import addCustomApp from './middlewares/addCustomApp'
-import enableManualPrice from './middlewares/enableManualPrice'
+import setupAppConfigurations from './middlewares'
 
 const TIMEOUT_MS = 800
 
@@ -55,6 +54,6 @@ export default new Service({
   clients,
   routes: {},
   events: {
-    onAppInstalled: [enableManualPrice, addCustomApp],
+    onAppInstalled: setupAppConfigurations,
   },
 })
