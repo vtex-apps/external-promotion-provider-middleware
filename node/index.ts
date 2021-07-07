@@ -7,7 +7,12 @@ import type {
 import { method, LRUCache, Service } from '@vtex/api'
 
 import { Clients } from './clients'
-import { setupAppConfiguration, getOrderFormId } from './middlewares'
+import {
+  setupAppConfiguration,
+  getOrderFormId,
+  calculateExternalBenefits,
+  applyManualPrices,
+} from './middlewares'
 
 const TIMEOUT_MS = 800
 
@@ -55,7 +60,11 @@ export default new Service({
   clients,
   routes: {
     orderFormNotification: method({
-      POST: [getOrderFormId],
+      POST: [getOrderFormId, calculateExternalBenefits, applyManualPrices],
+    }),
+    simulation: method({
+      // TODO: Implement routes that receive orderForm (or smth) directly and calls the external api without applying manual prices
+      POST: [calculateExternalBenefits],
     }),
   },
   events: {

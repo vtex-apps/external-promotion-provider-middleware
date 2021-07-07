@@ -6,12 +6,19 @@
   "maxReplicas": 4,
   "workers": 1,
   "routes": {
-
+    "orderFormNotification": {
+      "path": "/_v/promotion-provider/notification",
+      "public": true
+    },
+    "simulation": {
+      "path": "/_v/promotion-provider/simulation",
+      "public": true
+    }
   },
   "events": {
     "onAppInstalled": {
       "sender": "apps",
-      "keys": [ "setup" ]
+      "keys": ["setup"]
     }
   }
 }
