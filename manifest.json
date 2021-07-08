@@ -1,8 +1,8 @@
 {
-  "name": "service-example",
+  "name": "promotion-provider-middleware",
   "vendor": "vtex",
-  "version": "0.2.0",
-  "title": "Service Example",
+  "version": "0.1.0",
+  "title": "Promotion Provider Middleware",
   "description": "Reference app for VTEX IO Services",
   "mustUpdateAt": "2018-01-04",
   "categories": [],
@@ -11,15 +11,13 @@
     "node": "6.x",
     "docs": "0.x"
   },
-  "scripts": {
-    "prereleasy": "bash lint.sh"
-  },
+  "scripts": {},
   "credentialType": "absolute",
   "policies": [
     {
       "name": "outbound-access",
       "attrs": {
-        "host": "httpstat.us",
+        "host": "*",
         "path": "*"
       }
     },

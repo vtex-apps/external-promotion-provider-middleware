@@ -1,14 +1,24 @@
 {
   "memory": 256,
   "ttl": 10,
-  "timeout": 2,
+  "timeout": 5,
   "minReplicas": 2,
   "maxReplicas": 4,
   "workers": 1,
   "routes": {
-    "status": {
-      "path": "/_v/status/:code",
+    "orderFormNotification": {
+      "path": "/_v/promotion-provider/notification",
       "public": true
+    },
+    "simulation": {
+      "path": "/_v/promotion-provider/simulation",
+      "public": true
+    }
+  },
+  "events": {
+    "onAppInstalled": {
+      "sender": "apps",
+      "keys": ["setup"]
     }
   }
 }

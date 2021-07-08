@@ -1,9 +1,18 @@
-import type { ClientsConfig, ServiceContext, RecorderState } from '@vtex/api'
-import { LRUCache, method, Service } from '@vtex/api'
+import type {
+  ClientsConfig,
+  ServiceContext,
+  RecorderState,
+  EventContext,
+} from '@vtex/api'
+import { method, LRUCache, Service } from '@vtex/api'
 
 import { Clients } from './clients'
-import { status } from './middlewares/status'
-import { validate } from './middlewares/validate'
+import {
+  setupAppConfiguration,
+  getOrderFormId,
+  calculateExternalBenefits,
+  applyManualPrices,
+} from './middlewares'
 
 const TIMEOUT_MS = 800
 
@@ -11,6 +20,7 @@ const TIMEOUT_MS = 800
 // The @vtex/api HttpClient respects Cache-Control headers and uses the provided cache.
 const memoryCache = new LRUCache<string, any>({ max: 5000 })
 
+// TODO: Change key for `status`
 metrics.trackCache('status', memoryCache)
 
 // This is the configuration for clients available in `ctx.clients`.
@@ -24,6 +34,7 @@ const clients: ClientsConfig<Clients> = {
       timeout: TIMEOUT_MS,
     },
     // This key will be merged with the default options and add this cache to our Status client.
+    // TODO: Change key for `status`
     status: {
       memoryCache,
     },
@@ -34,9 +45,13 @@ declare global {
   // We declare a global Context type just to avoid re-writing ServiceContext<Clients, State> in every handler and resolver
   type Context = ServiceContext<Clients, State>
 
-  // The shape of our State object found in `ctx.state`. This is used as state bag to communicate between middlewares.
+  interface InstalledAppEvent extends EventContext<Clients> {
+    // eslint-disable-next-line @typescript-eslint/ban-types
+    body: {}
+  }
+
   interface State extends RecorderState {
-    code: number
+    orderFormId: string
   }
 }
 
@@ -44,9 +59,15 @@ declare global {
 export default new Service({
   clients,
   routes: {
-    // `status` is the route ID from service.json. It maps to an array of middlewares (or a single handler).
-    status: method({
-      GET: [validate, status],
+    orderFormNotification: method({
+      POST: [getOrderFormId, calculateExternalBenefits, applyManualPrices],
     }),
+    simulation: method({
+      // TODO: Implement routes that receive orderForm (or smth) directly and calls the external api without applying manual prices
+      POST: [calculateExternalBenefits],
+    }),
+  },
+  events: {
+    onAppInstalled: setupAppConfiguration,
   },
 })
