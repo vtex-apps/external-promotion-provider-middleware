@@ -4,7 +4,8 @@
   "license": "UNLICENSED",
   "scripts": {
     "lint": "eslint --ext js,jsx,ts,tsx .",
-    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json}\""
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json}\"",
+    "release": "standard-version"
   },
   "husky": {
     "hooks": {
@@ -34,6 +35,7 @@
     "husky": "^4.3.6",
     "lint-staged": "^10.5.3",
     "prettier": "^2.2.1",
+    "standard-version": "^9.3.0",
     "typescript": "^3.7.5"
   },
   "config": {
