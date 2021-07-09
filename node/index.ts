@@ -47,11 +47,12 @@ declare global {
 
   interface InstalledAppEvent extends EventContext<Clients> {
     // eslint-disable-next-line @typescript-eslint/ban-types
-    body: {}
+    body: { id?: string }
   }
 
   interface State extends RecorderState {
     orderFormId: string
+    appSettings?: { externalEndpoint: string }
   }
 }
 
@@ -69,5 +70,6 @@ export default new Service({
   },
   events: {
     onAppInstalled: setupAppConfiguration,
+    onSettingsChanged: setupAppConfiguration,
   },
 })
