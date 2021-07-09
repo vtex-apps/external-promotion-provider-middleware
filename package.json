@@ -2,13 +2,13 @@
   "name": "service-example",
   "private": true,
   "license": "UNLICENSED",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "scripts": {
     "lint": "eslint --ext js,jsx,ts,tsx .",
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json}\"",
-    "minor": "standard-version --release-as minor",
-    "major": "standard-version --release-as major",
-    "patch": "standard-version --release-as patch"
+    "minor": "HUSKY_SKIP_HOOKS=1 standard-version --release-as minor",
+    "major": "HUSKY_SKIP_HOOKS=1 standard-version --release-as major",
+    "patch": "HUSKY_SKIP_HOOKS=1 standard-version --release-as patch"
   },
   "husky": {
     "hooks": {
