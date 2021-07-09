@@ -7,8 +7,10 @@ export default class ExternalProvider extends ExternalClient {
     super(context.settings.url, context, options)
   }
 
-  public async getBenefits(payload: any): Promise<any> {
+  public async getBenefits(payload: any): Promise<IOResponse<any>> {
     // TODO: Implement external request
+    payload // fixes ts error
+
     return this.http.post(
       '/',
       {},

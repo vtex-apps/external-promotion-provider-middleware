@@ -1,3 +1,5 @@
+import type { OrderFormConfiguration } from '@vtex/clients'
+
 import orderFormConfigurationService from '../services/orderFormConfiguration'
 
 const setupAppConfiguration = async (
@@ -9,7 +11,7 @@ const setupAppConfiguration = async (
   // TODO: Implement configuration setting of CustomApp and Manual Price
   orderFormConfigurationService.setConfiguration({
     client: checkout,
-    configuration: {},
+    configuration: {} as OrderFormConfiguration, // fixes ts error
   })
 
   await next()
