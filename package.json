@@ -6,7 +6,9 @@
   "scripts": {
     "lint": "eslint --ext js,jsx,ts,tsx .",
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json}\"",
-    "release": "standard-version"
+    "minor": "standard-version -- --release-as minor",
+    "major": "standard-version -- --release-as major",
+    "patch": "standard-version -- --release-as patch"
   },
   "husky": {
     "hooks": {
