@@ -3,7 +3,7 @@
   "vendor": "vtex",
   "version": "0.1.0",
   "title": "Promotion Provider Middleware",
-  "description": "Reference app for VTEX IO Services",
+  "description": "Promotion provider middleware for external integrations",
   "mustUpdateAt": "2018-01-04",
   "categories": [],
   "dependencies": {},
@@ -28,5 +28,15 @@
       "name": "colossus-write-logs"
     }
   ],
+  "settingsSchema": {
+    "title": "Promotion Provider Middleware",
+    "type": "object",
+    "properties": {
+      "externalEndpoint": {
+        "title": "External Endpoint",
+        "type": "string"
+      }
+    }
+  },
   "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"
 }
