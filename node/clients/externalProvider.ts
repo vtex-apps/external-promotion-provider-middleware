@@ -7,9 +7,10 @@ export default class ExternalProvider extends ExternalClient {
     super(context.settings.url, context, options)
   }
 
+  /* eslint-disable @typescript-eslint/ban-ts-comment, @typescript-eslint/no-unused-vars */
+  // @ts-ignore
   public async getBenefits(payload: any): Promise<IOResponse<any>> {
     // TODO: Implement external request
-    payload // fixes ts error
 
     return this.http.post(
       '/',
