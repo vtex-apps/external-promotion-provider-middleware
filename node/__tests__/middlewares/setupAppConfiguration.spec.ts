@@ -1,5 +1,3 @@
-import { reject } from 'ramda'
-
 import { setupAppConfiguration } from '../../middlewares'
 
 describe('setupAppConfiguration', () => {
