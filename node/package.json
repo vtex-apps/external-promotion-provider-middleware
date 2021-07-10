@@ -15,7 +15,8 @@
     "typescript": "3.9.7"
   },
   "scripts": {
-    "lint": "tsc --noEmit --pretty"
+    "lint": "tsc --noEmit --pretty",
+    "test": "vtex-test-tools test --collectCoverage"
   },
   "version": "0.2.0"
 }
