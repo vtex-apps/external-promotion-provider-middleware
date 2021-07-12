@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.3.0](https://github.com/vtex/external-promotion-provider-middleware/compare/v0.2.0...v0.3.0) (2021-07-10)
+
+
+### Features
+
+* add try catch around getAppSettings ([cab35a6](https://github.com/vtex/external-promotion-provider-middleware/commit/cab35a6b0420ac7b3984fbab7555012e3d9d8915))
+
 ## 0.2.0 (2021-07-09)
 
 
