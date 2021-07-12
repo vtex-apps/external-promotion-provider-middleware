@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.4.0](https://github.com/vtex/external-promotion-provider-middleware/compare/v0.3.0...v0.4.0) (2021-07-12)
+
+
+### Features
+
+* add orderform configuration setup service ([93e51bd](https://github.com/vtex/external-promotion-provider-middleware/commit/93e51bd7b9c0efa5331d749b0e1333cb94259501))
+
 ## [0.3.0](https://github.com/vtex/external-promotion-provider-middleware/compare/v0.2.0...v0.3.0) (2021-07-10)
 
 
