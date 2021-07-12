@@ -11,11 +11,10 @@ describe('setupAppConfiguration', () => {
 
   it('should insert the app settings into context', async () => {
     const spyGetAppSettings = jest.spyOn(ctx.clients.apps, 'getAppSettings')
-    spyGetAppSettings
-      .mockImplementation()
-      .mockResolvedValueOnce({
-        externalEndpoint: 'http://localhost:3000/api',
-      })
+
+    spyGetAppSettings.mockImplementation().mockResolvedValueOnce({
+      externalEndpoint: 'http://localhost:3000/api',
+    })
     const next = jest.fn()
 
     await setupAppConfiguration(ctx, next)
