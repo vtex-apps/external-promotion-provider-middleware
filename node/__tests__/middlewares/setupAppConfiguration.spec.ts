@@ -1,19 +1,21 @@
 import { setupAppConfiguration } from '../../middlewares'
 
 describe('setupAppConfiguration', () => {
-  it('should insert the app settings into context', async () => {
-    const ctx = {
-      state: {},
-      clients: {
-        apps: {
-          getAppSettings: jest.fn().mockResolvedValueOnce({
-            externalEndpoint: 'http://localhost:3000/api',
-          }),
-        },
-      },
-      vtex: { logger: { debug: jest.fn() } },
-    } as any
+  const ctx = {
+    state: {},
+    clients: {
+      apps: { getAppSettings: jest.fn() },
+    },
+    vtex: { logger: { debug: jest.fn() } },
+  } as any
 
+  it('should insert the app settings into context', async () => {
+    jest
+      .spyOn(ctx.clients.apps, 'getAppSettings')
+      .mockImplementation()
+      .mockResolvedValueOnce({
+        externalEndpoint: 'http://localhost:3000/api',
+      })
     const next = jest.fn()
     const spyGetAppSettings = jest.spyOn(ctx.clients.apps, 'getAppSettings')
 
@@ -24,17 +26,10 @@ describe('setupAppConfiguration', () => {
     })
   })
   it('should return error when getAppSettings is rejected', async () => {
-    const ctx = {
-      state: {},
-      clients: {
-        apps: {
-          getAppSettings: jest
-            .fn()
-            .mockRejectedValueOnce(new Error("Couldn't get app settings")),
-        },
-      },
-      vtex: { logger: { debug: jest.fn() } },
-    } as any
+    jest
+      .spyOn(ctx.clients.apps, 'getAppSettings')
+      .mockImplementation()
+      .mockRejectedValueOnce(new Error("Couldn't get app settings"))
 
     const next = jest.fn()
 
