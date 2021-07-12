@@ -10,10 +10,18 @@ const setupAppConfiguration = async (
 ) => {
   const { checkout, apps } = ctx.clients
 
-  // TODO: Implement configuration setting of CustomApp and Manual Price
-  orderFormConfigurationService.setConfiguration({
+  await orderFormConfigurationService.setConfiguration({
     client: checkout,
-    configuration: {} as OrderFormConfiguration, // fixes ts error
+    configuration: {
+      allowManualPrice: true,
+      apps: [
+        {
+          fields: ['externalPromotions'],
+          id: 'promotion-provider-middleware',
+          major: 0,
+        },
+      ],
+    } as OrderFormConfiguration,
   })
 
   const eventSender = ctx.body?.id ?? 'Sender was not provided'
