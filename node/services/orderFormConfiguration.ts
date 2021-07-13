@@ -7,11 +7,9 @@ type Args = {
 
 const getCurrentConfiguration = async (client: Checkout) => {
   const currentOrderformConfiguration = await client.getOrderFormConfiguration()
-  const isAppAlreadySet = currentOrderformConfiguration.apps.filter(
-    (app: App) => {
-      return app.id === 'promotion-provider-middleware'
-    }
-  ).length
+  const isAppAlreadySet = currentOrderformConfiguration.apps.some(
+    (app: App) => app.id === 'promotion-provider-middleware'
+  )
 
   return {
     isAppAlreadySet: !!isAppAlreadySet,
