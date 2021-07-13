@@ -12,7 +12,7 @@ const getCurrentConfiguration = async (client: Checkout) => {
   )
 
   return {
-    isAppAlreadySet: !!isAppAlreadySet,
+    isAppAlreadySet,
     isManualPriceTrue: currentOrderformConfiguration.allowManualPrice,
     currentOrderformConfiguration,
   }
