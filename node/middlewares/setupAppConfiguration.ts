@@ -1,5 +1,4 @@
-import type { OrderFormConfiguration } from '@vtex/clients'
-
+import { orderFormConfigurationConstant } from '../constants/orderFormConfiguration'
 import orderFormConfigurationService from '../services/orderFormConfiguration'
 
 type IAppSettings = { externalEndpoint: string }
@@ -10,10 +9,9 @@ const setupAppConfiguration = async (
 ) => {
   const { checkout, apps } = ctx.clients
 
-  // TODO: Implement configuration setting of CustomApp and Manual Price
-  orderFormConfigurationService.setConfiguration({
+  await orderFormConfigurationService.setConfiguration({
     client: checkout,
-    configuration: {} as OrderFormConfiguration, // fixes ts error
+    configuration: orderFormConfigurationConstant,
   })
 
   const eventSender = ctx.body?.id ?? 'Sender was not provided'
