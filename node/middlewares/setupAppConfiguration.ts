@@ -1,5 +1,4 @@
-import type { OrderFormConfiguration } from '@vtex/clients'
-
+import { orderFormConfigurationConstant } from '../constants/orderFormConfiguration'
 import orderFormConfigurationService from '../services/orderFormConfiguration'
 
 type IAppSettings = { externalEndpoint: string }
@@ -12,16 +11,7 @@ const setupAppConfiguration = async (
 
   await orderFormConfigurationService.setConfiguration({
     client: checkout,
-    configuration: {
-      allowManualPrice: true,
-      apps: [
-        {
-          fields: ['externalPromotions'],
-          id: 'promotion-provider-middleware',
-          major: 0,
-        },
-      ],
-    } as OrderFormConfiguration,
+    configuration: orderFormConfigurationConstant,
   })
 
   const eventSender = ctx.body?.id ?? 'Sender was not provided'
