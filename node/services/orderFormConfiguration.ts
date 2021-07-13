@@ -46,4 +46,4 @@ const setConfiguration = async ({
   }
 }
 
-export default { setConfiguration }
+export default { setConfiguration, getCurrentConfiguration }
