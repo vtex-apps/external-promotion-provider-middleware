@@ -36,8 +36,8 @@ const setConfiguration = async ({
     await client.setOrderFormConfiguration({
       ...currentOrderformConfiguration,
       apps: [
-           ...currentOrderformConfiguration.apps,
-           ...(isAppAlreadySet ? [] : configuration.apps)
+        ...currentOrderformConfiguration.apps,
+        ...(isAppAlreadySet ? [] : configuration.apps),
       ],
       allowManualPrice: configuration.allowManualPrice,
     })
