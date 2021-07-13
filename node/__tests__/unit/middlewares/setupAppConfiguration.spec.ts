@@ -1,4 +1,6 @@
-import { setupAppConfiguration } from '../../middlewares'
+import { setupAppConfiguration } from '../../../middlewares'
+
+jest.mock('../../../services/orderFormConfiguration')
 
 describe('setupAppConfiguration', () => {
   const ctx = {
