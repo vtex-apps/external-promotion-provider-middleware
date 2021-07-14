@@ -1,9 +1,6 @@
 type IAppSettings = { externalEndpoint: string }
 
-const getAppConfiguration = async (
-  ctx: InstalledAppEvent,
-  next: () => Promise<any>
-) => {
+const getAppConfiguration = async (ctx: Context, next: () => Promise<any>) => {
   const { apps } = ctx.clients
 
   try {
@@ -11,7 +8,7 @@ const getAppConfiguration = async (
       process.env.VTEX_APP_ID as string
     )
 
-    ctx.state.appSettings = appSettings
+    ctx.vtex.settings = { ...ctx.vtex.settings, ...appSettings }
   } catch (error) {
     ctx.vtex.logger.error({
       getAppSettingsError: {
