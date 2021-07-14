@@ -52,7 +52,7 @@ declare global {
 
   interface State extends RecorderState {
     orderFormId?: string
-    appSettings?: { externalEndpoint: string }
+    appSettings: { externalEndpoint?: string }
   }
 }
 
