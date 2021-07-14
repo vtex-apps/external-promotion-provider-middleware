@@ -8,7 +8,7 @@ const getAppConfiguration = async (ctx: Context, next: () => Promise<any>) => {
       process.env.VTEX_APP_ID as string
     )
 
-    ctx.state.appSettings = appSettings
+    ctx.vtex.settings = { ...ctx.vtex.settings, ...appSettings }
   } catch (error) {
     ctx.vtex.logger.error({
       getAppSettingsError: {
