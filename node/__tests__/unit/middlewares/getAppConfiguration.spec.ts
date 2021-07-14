@@ -26,7 +26,7 @@ describe('getAppConfiguration', () => {
     jest
       .spyOn(ctx.clients.apps, 'getAppSettings')
       .mockImplementation()
-      .mockRejectedValueOnce(new Error("Couldn't get app settings"))
+      .mockRejectedValueOnce(new Error())
 
     const next = jest.fn()
 
