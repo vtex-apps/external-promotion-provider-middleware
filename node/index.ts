@@ -12,6 +12,7 @@ import {
   getOrderFormId,
   calculateExternalBenefits,
   applyManualPrices,
+  getAppConfiguration,
 } from './middlewares'
 
 const TIMEOUT_MS = 800
@@ -61,11 +62,16 @@ export default new Service({
   clients,
   routes: {
     orderFormNotification: method({
-      POST: [getOrderFormId, calculateExternalBenefits, applyManualPrices],
+      POST: [
+        getAppConfiguration,
+        getOrderFormId,
+        calculateExternalBenefits,
+        applyManualPrices,
+      ],
     }),
     simulation: method({
       // TODO: Implement routes that receive orderForm (or smth) directly and calls the external api without applying manual prices
-      POST: [calculateExternalBenefits],
+      POST: [getAppConfiguration, calculateExternalBenefits],
     }),
   },
   events: {
