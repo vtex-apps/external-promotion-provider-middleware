@@ -1,6 +1,7 @@
 import { setupAppConfiguration } from '../../../middlewares'
+import { orderFormConfiguration } from '../../../services'
 
-jest.mock('../../../services/orderFormConfiguration')
+jest.mock('../../../services')
 
 describe('setupAppConfiguration', () => {
   const ctx = {
@@ -8,33 +9,27 @@ describe('setupAppConfiguration', () => {
     clients: {
       apps: { getAppSettings: jest.fn() },
     },
-    vtex: { logger: { debug: jest.fn() } },
+    vtex: { logger: { error: jest.fn() } },
   } as any
 
-  it('should insert the app settings into context', async () => {
-    const spyGetAppSettings = jest.spyOn(ctx.clients.apps, 'getAppSettings')
-
-    spyGetAppSettings.mockImplementation().mockResolvedValueOnce({
-      externalEndpoint: 'http://localhost:3000/api',
-    })
-    const next = jest.fn()
-
-    await setupAppConfiguration(ctx, next)
-    expect(spyGetAppSettings).toHaveBeenCalled()
-    expect(ctx.state.appSettings).toEqual({
-      externalEndpoint: 'http://localhost:3000/api',
-    })
-  })
-  it('should return error when getAppSettings is rejected', async () => {
+  it('should return error when setConfiguration is rejected', async () => {
     jest
-      .spyOn(ctx.clients.apps, 'getAppSettings')
+      .spyOn(orderFormConfiguration, 'setConfiguration')
       .mockImplementation()
       .mockRejectedValueOnce(new Error("Couldn't get app settings"))
 
     const next = jest.fn()
 
     await expect(setupAppConfiguration(ctx, next)).rejects.toThrow(
-      "Couldn't get app settings"
+      "Couldn't set orderform configuration"
     )
+  })
+  it('should call next function', async () => {
+    jest.spyOn(orderFormConfiguration, 'setConfiguration').mockImplementation()
+
+    const next = jest.fn()
+
+    await setupAppConfiguration(ctx, next)
+    expect(next).toHaveBeenCalled()
   })
 })
