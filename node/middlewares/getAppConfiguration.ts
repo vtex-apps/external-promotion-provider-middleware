@@ -1,9 +1,6 @@
 type IAppSettings = { externalEndpoint: string }
 
-const getAppConfiguration = async (
-  ctx: InstalledAppEvent,
-  next: () => Promise<any>
-) => {
+const getAppConfiguration = async (ctx: Context, next: () => Promise<any>) => {
   const { apps } = ctx.clients
 
   try {
