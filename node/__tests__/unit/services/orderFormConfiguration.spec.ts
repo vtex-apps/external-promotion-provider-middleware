@@ -1,4 +1,4 @@
-import orderFormConfigurationService from '../../../services/orderFormConfiguration'
+import { orderFormConfiguration } from '../../../services'
 
 const configuration = {
   allowManualPrice: true,
@@ -46,9 +46,7 @@ describe('orderFormConfigurationService', () => {
 
       const {
         isAppAlreadySet,
-      } = await orderFormConfigurationService.getCurrentConfiguration(
-        checkout as any
-      )
+      } = await orderFormConfiguration.getCurrentConfiguration(checkout as any)
 
       expect(isAppAlreadySet).toBe(true)
     })
@@ -61,9 +59,7 @@ describe('orderFormConfigurationService', () => {
 
       const {
         isAppAlreadySet,
-      } = await orderFormConfigurationService.getCurrentConfiguration(
-        checkout as any
-      )
+      } = await orderFormConfiguration.getCurrentConfiguration(checkout as any)
 
       expect(isAppAlreadySet).toBe(false)
     })
@@ -78,7 +74,7 @@ describe('orderFormConfigurationService', () => {
           .mockResolvedValueOnce(orderformConfiguration(true, true)),
       }
 
-      await orderFormConfigurationService.setConfiguration({
+      await orderFormConfiguration.setConfiguration({
         client: checkout as any,
         configuration: configuration as any,
       })
@@ -93,7 +89,7 @@ describe('orderFormConfigurationService', () => {
           .mockResolvedValueOnce(orderformConfiguration(true)),
       }
 
-      await orderFormConfigurationService.setConfiguration({
+      await orderFormConfiguration.setConfiguration({
         client: checkout as any,
         configuration: configuration as any,
       })
@@ -108,7 +104,7 @@ describe('orderFormConfigurationService', () => {
           .mockResolvedValueOnce(orderformConfiguration(false, true)),
       }
 
-      await orderFormConfigurationService.setConfiguration({
+      await orderFormConfiguration.setConfiguration({
         client: checkout as any,
         configuration: configuration as any,
       })
@@ -123,7 +119,7 @@ describe('orderFormConfigurationService', () => {
           .mockResolvedValueOnce(orderformConfiguration(false, false)),
       }
 
-      await orderFormConfigurationService.setConfiguration({
+      await orderFormConfiguration.setConfiguration({
         client: checkout as any,
         configuration: configuration as any,
       })
@@ -138,7 +134,7 @@ describe('orderFormConfigurationService', () => {
           .mockResolvedValueOnce(orderformConfiguration(true)),
       }
 
-      const { setConfiguration } = orderFormConfigurationService
+      const { setConfiguration } = orderFormConfiguration
 
       await expect(
         setConfiguration({

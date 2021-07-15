@@ -1,38 +1,25 @@
 import { orderFormConfigurationConstant } from '../constants/orderFormConfiguration'
-import orderFormConfigurationService from '../services/orderFormConfiguration'
-
-type IAppSettings = { externalEndpoint: string }
+import { orderFormConfiguration } from '../services'
 
 const setupAppConfiguration = async (
   ctx: InstalledAppEvent,
   next: () => Promise<any>
 ) => {
-  const { checkout, apps } = ctx.clients
-
-  await orderFormConfigurationService.setConfiguration({
-    client: checkout,
-    configuration: orderFormConfigurationConstant,
-  })
-
-  const eventSender = ctx.body?.id ?? 'Sender was not provided'
+  const { checkout } = ctx.clients
 
   try {
-    const appSettings: IAppSettings = await apps.getAppSettings(
-      process.env.VTEX_APP_ID as string
-    )
-
-    ctx.state.appSettings = appSettings
-
-    ctx.vtex.logger.debug({
-      eventState: {
-        status: 'received',
-        sender: eventSender,
-        event: ctx.vtex.eventInfo,
-        content: ctx.state.appSettings,
+    await orderFormConfiguration.setConfiguration({
+      client: checkout,
+      configuration: orderFormConfigurationConstant,
+    })
+  } catch (error) {
+    ctx.vtex.logger.error({
+      setupAppConfigurationError: {
+        status: 'failed',
+        content: error,
       },
     })
-  } catch (err) {
-    throw new Error("Couldn't get app settings")
+    throw new Error("Couldn't set orderform configuration")
   }
 
   await next()

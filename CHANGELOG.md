@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.6.0](https://github.com/vtex/external-promotion-provider-middleware/compare/v0.5.0...v0.6.0) (2021-07-14)
+
+
+### Features
+
+* add new getAppConfiguration middleware ([ea64003](https://github.com/vtex/external-promotion-provider-middleware/commit/ea6400394fd6628f13d355835a4c331aabb73f23))
+
 ## [0.5.0](https://github.com/vtex/external-promotion-provider-middleware/compare/v0.4.0...v0.5.0) (2021-07-13)
 
 ## [0.4.0](https://github.com/vtex/external-promotion-provider-middleware/compare/v0.3.0...v0.4.0) (2021-07-12)

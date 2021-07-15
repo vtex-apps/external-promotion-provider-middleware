@@ -3,7 +3,7 @@ const calculateExternalBenefits = async (
   next: () => Promise<any>
 ) => {
   // TODO: Implements calculations using External Provider
-  ctx.clients.externalProvider
+  ctx.clients.externalProvider.getBenefits('')
 
   await next()
 }
