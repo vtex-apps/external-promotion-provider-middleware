@@ -14,7 +14,7 @@ export default class ExternalProvider extends ExternalClient {
 
     return this.http.post(
       '/',
-      { ...payload },
+      payload,
       {
         // TODO: Change metric
         metric: 'status-get',
