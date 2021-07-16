@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.7.0](https://github.com/vtex/external-promotion-provider-middleware/compare/v0.6.0...v0.7.0) (2021-07-16)
+
+
+### Features
+
+* add external endpoint as base url in externalProvider super ([c536d84](https://github.com/vtex/external-promotion-provider-middleware/commit/c536d84893d39894c2daa4298fb934d2f987a310))
+* add external endpoint to settings context ([8be6beb](https://github.com/vtex/external-promotion-provider-middleware/commit/8be6bebca773f5292d327a45f8a08d099a060958))
+* add getAppConfiguration middleware to routes ([d8a5928](https://github.com/vtex/external-promotion-provider-middleware/commit/d8a5928a28561dd3adfb3658c24d8e79a0de575c))
+* add getBenefits method to calculateExternalBenefits middleware ([31ff463](https://github.com/vtex/external-promotion-provider-middleware/commit/31ff463e2f70c2f1ed7e9e70e3e3e3645f9fc805))
+* add getOrderformById middleware ([5f3b825](https://github.com/vtex/external-promotion-provider-middleware/commit/5f3b825ddd7cfec2a7c1d98985ad7861565b874d))
+* add orderform service ([ece6215](https://github.com/vtex/external-promotion-provider-middleware/commit/ece62158abfeea1c4fc3d929966d20ef564c91ea))
+
 ## [0.6.0](https://github.com/vtex/external-promotion-provider-middleware/compare/v0.5.0...v0.6.0) (2021-07-14)
 
 
