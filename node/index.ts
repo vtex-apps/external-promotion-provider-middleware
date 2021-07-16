@@ -9,11 +9,12 @@ import { method, LRUCache, Service } from '@vtex/api'
 import { Clients } from './clients'
 import {
   setupAppConfiguration,
-  getOrderFormId,
+  getOrderFormById,
   calculateExternalBenefits,
   applyManualPrices,
   getAppConfiguration,
 } from './middlewares'
+import type { CheckoutOrderForm } from './typings/global'
 
 const TIMEOUT_MS = 800
 
@@ -52,6 +53,7 @@ declare global {
   }
 
   interface State extends RecorderState {
+    orderForm: CheckoutOrderForm
     orderFormId?: string
     appSettings: { externalEndpoint?: string }
   }
@@ -64,7 +66,7 @@ export default new Service({
     orderFormNotification: method({
       POST: [
         getAppConfiguration,
-        getOrderFormId,
+        getOrderFormById,
         calculateExternalBenefits,
         applyManualPrices,
       ],
