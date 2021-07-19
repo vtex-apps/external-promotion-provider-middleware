@@ -12,13 +12,9 @@ export default class ExternalProvider extends ExternalClient {
   public async getBenefits(payload: any): Promise<IOResponse<any>> {
     // TODO: Implement external request
 
-    return this.http.post(
-      '/',
-      payload,
-      {
-        // TODO: Change metric
-        metric: 'status-get',
-      }
-    )
+    return this.http.post('/', payload, {
+      // TODO: Change metric
+      metric: 'status-get',
+    })
   }
 }
