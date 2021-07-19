@@ -1,12 +1,12 @@
 import applyManualPrices from './applyManualPrices'
 import calculateExternalBenefits from './calculateExternalBenefits'
-import getOrderFormId from './getOrderFormId'
+import getOrderFormById from './getOrderFormById'
 import setupAppConfiguration from './setupAppConfiguration'
 import getAppConfiguration from './getAppConfiguration'
 
 export {
   setupAppConfiguration,
-  getOrderFormId,
+  getOrderFormById,
   applyManualPrices,
   calculateExternalBenefits,
   getAppConfiguration,
