@@ -4,10 +4,10 @@ const calculateExternalBenefits = async (
   ctx: Context,
   next: () => Promise<any>
 ) => {
-  const formattedOrderform = parseOrderFormToProtocol(ctx.state.orderForm)
+  const parsedProtocol = parseOrderFormToProtocol(ctx.state.orderForm)
 
   // TODO: Implements calculations using External Provider
-  ctx.clients.externalProvider.getBenefits(formattedOrderform)
+  ctx.clients.externalProvider.getBenefits(parsedProtocol)
 
   await next()
 }
