@@ -1,6 +1,6 @@
 import type { CheckoutOrderForm } from '../typings/global'
 
-export function formatOrderform({
+export function parseOrderFormToProtocol({
   items,
   customData,
   shippingData,
@@ -51,12 +51,12 @@ export function formatOrderform({
         itemsNonVariableFields[index - 1]?.id === itemNonVariableFields.id
       ) {
         const compiledVariations = [
-          memo[index - 1].variations,
+          ...memo[memo.length - 1].variations,
           itemsVariableFields[index],
         ]
 
         const newItem = {
-          itemNonVariableFields,
+          ...itemNonVariableFields,
           variations: compiledVariations,
         }
 
@@ -67,7 +67,7 @@ export function formatOrderform({
 
       return memo.concat({
         ...itemNonVariableFields,
-        variations: itemsVariableFields[index],
+        variations: [itemsVariableFields[index]],
       })
     },
     []
@@ -82,7 +82,7 @@ export function formatOrderform({
     },
     clientProfileData,
     marketingData,
-    paymentData: { payments: { ...paymentData.payments } },
+    paymentData: { payments: paymentData.payments },
   }
 
   return formattedOrderform

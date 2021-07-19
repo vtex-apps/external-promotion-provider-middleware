@@ -1,3 +1,3 @@
-import { formatOrderform } from './formatOrderform'
+import { parseOrderFormToProtocol } from './parseOrderFormToProtocol'
 
-export { formatOrderform }
+export { parseOrderFormToProtocol }
