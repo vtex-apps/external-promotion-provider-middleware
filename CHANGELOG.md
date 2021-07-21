@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.9.0](https://github.com/vtex/external-promotion-provider-middleware/compare/v0.8.0...v0.9.0) (2021-07-21)
+
+
+### Features
+
+* add return to simulation route ([df4c4c9](https://github.com/vtex/external-promotion-provider-middleware/commit/df4c4c92795b27f6bc247fe12a679271b7fb0c75))
+
 ## [0.8.0](https://github.com/vtex/external-promotion-provider-middleware/compare/v0.7.0...v0.8.0) (2021-07-16)
 
 
