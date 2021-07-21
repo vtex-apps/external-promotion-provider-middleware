@@ -1,4 +1,5 @@
 import type { CheckoutOrderForm } from '../typings/global'
+import type { ExternalPromotionsRequestProtocol } from '../typings/protocol/request'
 
 export function parseOrderFormToProtocol({
   items,
@@ -7,7 +8,7 @@ export function parseOrderFormToProtocol({
   clientProfileData,
   marketingData,
   paymentData,
-}: CheckoutOrderForm) {
+}: CheckoutOrderForm): ExternalPromotionsRequestProtocol {
   const itemsNonVariableFields = items.map((item) => {
     return {
       id: item.id,
@@ -73,17 +74,17 @@ export function parseOrderFormToProtocol({
     []
   )
 
-  const formattedOrderform = {
+  const parsedOrderFormToProtocol = {
     items: formattedItems,
     customData,
     shippingData: {
-      logisticsInfo: shippingData.logisticsInfo,
-      selectedAddresses: shippingData.selectedAddresses,
+      logisticsInfo: shippingData?.logisticsInfo,
+      selectedAddresses: shippingData?.selectedAddresses,
     },
     clientProfileData,
     marketingData,
-    paymentData: { payments: paymentData.payments },
+    paymentData: { payments: paymentData?.payments },
   }
 
-  return formattedOrderform
+  return parsedOrderFormToProtocol
 }

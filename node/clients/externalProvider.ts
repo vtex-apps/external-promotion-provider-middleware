@@ -1,5 +1,8 @@
-import type { InstanceOptions, IOContext, IOResponse } from '@vtex/api'
+import type { InstanceOptions, IOContext } from '@vtex/api'
 import { ExternalClient } from '@vtex/api'
+
+import type { ExternalPromotionsRequestProtocol } from '../typings/protocol/request'
+import type { ExternalPromotionsResponseProtocol } from '../typings/protocol/response'
 
 export default class ExternalProvider extends ExternalClient {
   constructor(context: IOContext, options?: InstanceOptions) {
@@ -9,7 +12,9 @@ export default class ExternalProvider extends ExternalClient {
 
   /* eslint-disable @typescript-eslint/ban-ts-comment, @typescript-eslint/no-unused-vars */
   // @ts-ignore
-  public async getBenefits(payload: any): Promise<IOResponse<any>> {
+  public async getBenefits(
+    payload: ExternalPromotionsRequestProtocol
+  ): Promise<ExternalPromotionsResponseProtocol> {
     // TODO: Implement external request
 
     return this.http.post('/', payload, {

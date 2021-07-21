@@ -15,6 +15,8 @@ import {
   getAppConfiguration,
 } from './middlewares'
 import type { CheckoutOrderForm } from './typings/global'
+import type { ExternalPromotionsRequestProtocol } from './typings/protocol/request'
+import type { ExternalPromotionsResponseProtocol } from './typings/protocol/response'
 
 const TIMEOUT_MS = 800
 
@@ -56,6 +58,8 @@ declare global {
     orderForm: CheckoutOrderForm
     orderFormId?: string
     appSettings: { externalEndpoint?: string }
+    externalProviderResponse: ExternalPromotionsResponseProtocol
+    parsedRequestProtocol: ExternalPromotionsRequestProtocol
   }
 }
 
