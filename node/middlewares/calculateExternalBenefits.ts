@@ -16,7 +16,7 @@ const calculateExternalBenefits = async (
     ctx.state.parsedRequestProtocol
   )
 
-  if (ctx.url === '/_v/promotion-provider/simulation') {
+  if (ctx.vtex.route.id === 'simulation') {
     ctx.body = ctx.state.externalProviderResponse
 
     return
