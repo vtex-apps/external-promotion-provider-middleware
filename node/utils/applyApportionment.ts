@@ -54,7 +54,7 @@ export function applyApportionment(
           return {
             percentualDiscount:
               discountSum.percentualDiscount + externalPromotion.value,
-            nominalDiscount: discountSum.percentualDiscount,
+            nominalDiscount: discountSum.nominalDiscount,
           }
         }
 

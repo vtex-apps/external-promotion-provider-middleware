@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.12.0](https://github.com/vtex/external-promotion-provider-middleware/compare/v0.11.0...v0.12.0) (2021-07-23)
+
+
+### Bug Fixes
+
+* fix nominal discount sum ([7506038](https://github.com/vtex/external-promotion-provider-middleware/commit/75060385e070e0a9491d39507102368ed36ba7cc))
+
 ## [0.11.0](https://github.com/vtex/external-promotion-provider-middleware/compare/v0.10.0...v0.11.0) (2021-07-23)
 
 
