@@ -5,7 +5,8 @@ import type { CheckoutOrderForm } from '../typings/global'
 const getOrderFormById = async (client: Checkout, orderFormId: string) => {
   try {
     const orderForm: CheckoutOrderForm = ((await client.orderForm(
-      orderFormId
+      orderFormId,
+      'AUTH_TOKEN'
     )) as unknown) as CheckoutOrderForm
 
     return orderForm

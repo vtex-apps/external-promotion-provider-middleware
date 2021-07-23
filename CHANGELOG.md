@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.11.0](https://github.com/vtex/external-promotion-provider-middleware/compare/v0.10.0...v0.11.0) (2021-07-23)
+
+
+### Features
+
+* make getOrderformById return sensitive info without mask ([6901c61](https://github.com/vtex/external-promotion-provider-middleware/commit/6901c616dbf2aab5fc54beb90d092f1de85f0902))
+
 ## [0.10.0](https://github.com/vtex/external-promotion-provider-middleware/compare/v0.9.0...v0.10.0) (2021-07-23)
 
 
