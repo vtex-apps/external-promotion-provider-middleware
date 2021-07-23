@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.10.0](https://github.com/vtex/external-promotion-provider-middleware/compare/v0.9.0...v0.10.0) (2021-07-23)
+
+
+### Features
+
+* add Apportionment method ([1fac3ad](https://github.com/vtex/external-promotion-provider-middleware/commit/1fac3ad17aa75e836bf7c10b5157828eb2d2779d))
+* add Apportionment method and updates items prices based on apportioned price and index ([5915bd8](https://github.com/vtex/external-promotion-provider-middleware/commit/5915bd8efd711f571bbae461aa38e4347652f358))
+
+## [0.9.0](https://github.com/vtex/external-promotion-provider-middleware/compare/v0.8.0...v0.9.0) (2021-07-21)
+
+
+### Features
+
+* add return to simulation route ([df4c4c9](https://github.com/vtex/external-promotion-provider-middleware/commit/df4c4c92795b27f6bc247fe12a679271b7fb0c75))
+
 ## [0.8.0](https://github.com/vtex/external-promotion-provider-middleware/compare/v0.7.0...v0.8.0) (2021-07-16)
 
 

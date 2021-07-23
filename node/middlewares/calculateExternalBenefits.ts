@@ -1,13 +1,26 @@
+import { json } from 'co-body'
+
 import { parseOrderFormToProtocol } from '../utils/index'
 
 const calculateExternalBenefits = async (
   ctx: Context,
   next: () => Promise<any>
 ) => {
-  const parsedProtocol = parseOrderFormToProtocol(ctx.state.orderForm)
+  const simulationRequestBody = await json(ctx.req)
 
-  // TODO: Implements calculations using External Provider
-  ctx.clients.externalProvider.getBenefits(parsedProtocol)
+  ctx.state.parsedRequestProtocol = parseOrderFormToProtocol(
+    ctx.state.orderForm ?? simulationRequestBody
+  )
+
+  ctx.state.externalProviderResponse = await ctx.clients.externalProvider.getBenefits(
+    ctx.state.parsedRequestProtocol
+  )
+
+  if (ctx.vtex.route.id === 'simulation') {
+    ctx.body = ctx.state.externalProviderResponse
+
+    return
+  }
 
   await next()
 }
