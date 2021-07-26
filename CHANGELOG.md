@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.13.0](https://github.com/vtex/external-promotion-provider-middleware/compare/v0.12.0...v0.13.0) (2021-07-26)
+
+
+### Tests
+
+* test applyApportionment ([d5b2b80](https://github.com/vtex/external-promotion-provider-middleware/commit/d5b2b80e6d3ad1121283cefbb743d614578ad007))
+
+
+### Chores
+
+* add versionrc to configure standard-version ([8a47a30](https://github.com/vtex/external-promotion-provider-middleware/commit/8a47a30f0d13fc958681d3d9b1bedc0eeb8955dd))
+
 ## [0.12.0](https://github.com/vtex/external-promotion-provider-middleware/compare/v0.11.0...v0.12.0) (2021-07-23)
 
 
