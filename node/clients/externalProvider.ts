@@ -17,9 +17,21 @@ export default class ExternalProvider extends ExternalClient {
   ): Promise<ExternalPromotionsResponseProtocol> {
     // TODO: Implement external request
 
-    return this.http.post('/', payload, {
-      // TODO: Change metric
-      metric: 'status-get',
-    })
+    try {
+      const response = await this.http.post<ExternalPromotionsResponseProtocol>(
+        '/',
+        payload,
+        {
+          // TODO: Change metric
+          metric: 'status-get',
+        }
+      )
+
+      return response
+    } catch (err) {
+      throw new Error(
+        `External endpoint (${this.context.settings.externalEndpoint}) returned error. ${err}`
+      )
+    }
   }
 }
