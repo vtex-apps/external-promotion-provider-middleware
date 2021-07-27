@@ -107,47 +107,47 @@ export interface PriceDefinition {
 }
 
 export interface Item {
-  uniqueId: string
+  uniqueId?: string
   id: string
-  productId: string
-  productRefId: string
-  refId: string
-  ean: string
-  name: string
-  skuName: string
+  productId?: string
+  productRefId?: string
+  refId?: string
+  ean?: string
+  name?: string
+  skuName?: string
   modalType?: any
   parentItemIndex?: any
   parentAssemblyBinding?: any
-  assemblies: any[]
-  priceValidUntil: Date
-  tax: number
-  price: number
-  listPrice: number
+  assemblies?: any[]
+  priceValidUntil?: Date
+  tax?: number
+  price?: number
+  listPrice?: number
   manualPrice?: number
-  manualPriceAppliedBy: string
-  sellingPrice: number
-  rewardValue: number
-  isGift: boolean
-  additionalInfo: AdditionalInfo
+  manualPriceAppliedBy?: string
+  sellingPrice?: number
+  rewardValue?: number
+  isGift?: boolean
+  additionalInfo?: AdditionalInfo
   preSaleDate?: any
-  productCategoryIds: string
-  productCategories: ProductCategories
+  productCategoryIds?: string
+  productCategories?: ProductCategories
   quantity: number
-  seller: string
-  sellerChain: string[]
-  imageUrl: string
-  detailUrl: string
-  components: any[]
-  bundleItems: any[]
-  attachments: Attachment[]
-  attachmentOfferings: AttachmentOffering[]
-  offerings: any[]
-  priceTags: PriceTag[]
-  availability: string
-  measurementUnit: string
-  unitMultiplier: number
+  seller?: string
+  sellerChain?: string[]
+  imageUrl?: string
+  detailUrl?: string
+  components?: any[]
+  bundleItems?: any[]
+  attachments?: Attachment[]
+  attachmentOfferings?: AttachmentOffering[]
+  offerings?: any[]
+  priceTags?: PriceTag[]
+  availability?: string
+  measurementUnit?: string
+  unitMultiplier?: number
   manufacturerCode?: any
-  priceDefinition: PriceDefinition
+  priceDefinition?: PriceDefinition
 }
 
 export interface Totalizer {

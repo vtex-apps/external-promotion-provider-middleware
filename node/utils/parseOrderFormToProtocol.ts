@@ -8,34 +8,34 @@ import type { ExternalPromotionsRequestProtocol } from '../typings/protocol/requ
 
 interface INonVariableFields {
   id: string
-  productId: string
-  refId: string
-  ean: string
-  name: string
-  skuName: string
-  modalType: any
-  productCategoryIds: string
-  productCategories: { [key: string]: string }
-  availability: string
-  measurementUnit: string
+  productId?: string
+  refId?: string
+  ean?: string
+  name?: string
+  skuName?: string
+  modalType?: any
+  productCategoryIds?: string
+  productCategories?: { [key: string]: string }
+  availability?: string
+  measurementUnit?: string
 }
 
 interface IVariableFields {
-  assemblies: any[]
-  tax: number
-  price: number
-  listPrice: number
-  manualPrice: number | undefined
-  sellingPrice: number
-  isGift: boolean
-  quantity: number
-  attachments: Attachment[]
-  attachmentOfferings: AttachmentOffering[]
-  offerings: any[]
-  priceTags: PriceTag[]
-  unitMultiplier: number
-  seller: string
-  sellerChain: string[]
+  assemblies?: any[]
+  tax?: number
+  price?: number
+  listPrice?: number
+  manualPrice?: number | undefined
+  sellingPrice?: number
+  isGift?: boolean
+  quantity?: number
+  attachments?: Attachment[]
+  attachmentOfferings?: AttachmentOffering[]
+  offerings?: any[]
+  priceTags?: PriceTag[]
+  unitMultiplier?: number
+  seller?: string
+  sellerChain?: string[]
 }
 
 export function parseOrderFormToProtocol({
@@ -67,34 +67,34 @@ export function parseOrderFormToProtocol({
 
       nonVariableFields.push({
         id: item.id,
-        productId: item?.productId,
-        refId: item?.refId,
-        ean: item?.ean,
-        name: item?.name,
-        skuName: item?.skuName,
-        modalType: item?.modalType,
-        productCategoryIds: item?.productCategoryIds,
-        productCategories: item?.productCategories,
-        availability: item?.availability,
-        measurementUnit: item?.measurementUnit,
+        productId: item.productId,
+        refId: item.refId,
+        ean: item.ean,
+        name: item.name,
+        skuName: item.skuName,
+        modalType: item.modalType,
+        productCategoryIds: item.productCategoryIds,
+        productCategories: item.productCategories,
+        availability: item.availability,
+        measurementUnit: item.measurementUnit,
       })
 
       variableFields.push({
-        assemblies: item?.assemblies,
-        tax: item?.tax,
-        price: item?.price,
-        listPrice: item?.listPrice,
-        manualPrice: item?.manualPrice,
-        sellingPrice: item?.sellingPrice,
-        isGift: item?.isGift,
-        quantity: item?.quantity,
-        attachments: item?.attachments,
-        attachmentOfferings: item?.attachmentOfferings,
-        offerings: item?.offerings,
-        priceTags: item?.priceTags,
-        unitMultiplier: item?.unitMultiplier,
-        seller: item?.seller,
-        sellerChain: item?.sellerChain,
+        assemblies: item.assemblies,
+        tax: item.tax,
+        price: item.price,
+        listPrice: item.listPrice,
+        manualPrice: item.manualPrice,
+        sellingPrice: item.sellingPrice,
+        isGift: item.isGift,
+        quantity: item.quantity,
+        attachments: item.attachments,
+        attachmentOfferings: item.attachmentOfferings,
+        offerings: item.offerings,
+        priceTags: item.priceTags,
+        unitMultiplier: item.unitMultiplier,
+        seller: item.seller,
+        sellerChain: item.sellerChain,
       })
 
       return [variableFields, nonVariableFields]
