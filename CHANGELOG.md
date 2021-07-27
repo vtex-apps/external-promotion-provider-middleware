@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.15.0](https://github.com/vtex/external-promotion-provider-middleware/compare/v0.14.0...v0.15.0) (2021-07-27)
+
+
+### Tests
+
+* test calculateExternalBenefits middleware ([10fa20c](https://github.com/vtex/external-promotion-provider-middleware/commit/10fa20cccdb48ff3cbe1bcce232427cd8c8d9483))
+
 ## [0.14.0](https://github.com/vtex/external-promotion-provider-middleware/compare/v0.13.0...v0.14.0) (2021-07-27)
 
 
