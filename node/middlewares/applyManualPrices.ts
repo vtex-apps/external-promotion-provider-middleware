@@ -1,18 +1,30 @@
-import { applyApportionment } from '../utils'
+import { applyApportionment, validateIndexConsistency } from '../utils'
 
 const applyManualPrices = async (ctx: Context, next: () => Promise<any>) => {
-  const apportionedPayload = applyApportionment(
-    ctx.state.parsedRequestProtocol,
-    ctx.state.externalProviderResponse
-  )
+  try {
+    validateIndexConsistency(
+      ctx.state.orderForm,
+      ctx.state.externalProviderResponse
+    )
 
-  ctx.clients.checkout.updateItems(
-    ctx.state.orderFormId as string,
-    apportionedPayload,
-    'AUTH_TOKEN'
-  )
+    const apportionedPayload = applyApportionment(
+      ctx.state.parsedRequestProtocol,
+      ctx.state.externalProviderResponse
+    )
 
-  ctx.status = 204
+    await ctx.clients.checkout.updateItems(
+      ctx.state.orderFormId as string,
+      apportionedPayload,
+      'AUTH_TOKEN'
+    )
+
+    ctx.status = 204
+  } catch (err) {
+    ctx.status = 400
+    ctx.body = { error: err.message }
+
+    return
+  }
 
   await next()
 }

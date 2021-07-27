@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.16.0](https://github.com/vtex/external-promotion-provider-middleware/compare/v0.15.0...v0.16.0) (2021-07-27)
+
+
+### Features
+
+* add validateIndexConsistency method to applyManualPrices middleware ([83eee26](https://github.com/vtex/external-promotion-provider-middleware/commit/83eee26b707e13ac2c2ac24cc618d0ffd7a9c018))
+* create validateIndexConsistency util ([5323ceb](https://github.com/vtex/external-promotion-provider-middleware/commit/5323cebc42382085cb48458b373395693a2f4c6d))
+
+## [0.15.0](https://github.com/vtex/external-promotion-provider-middleware/compare/v0.14.0...v0.15.0) (2021-07-27)
+
+
+### Tests
+
+* test calculateExternalBenefits middleware ([10fa20c](https://github.com/vtex/external-promotion-provider-middleware/commit/10fa20cccdb48ff3cbe1bcce232427cd8c8d9483))
+
 ## [0.14.0](https://github.com/vtex/external-promotion-provider-middleware/compare/v0.13.0...v0.14.0) (2021-07-27)
 
 
