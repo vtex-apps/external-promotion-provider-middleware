@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.14.0](https://github.com/vtex/external-promotion-provider-middleware/compare/v0.13.0...v0.14.0) (2021-07-27)
+
+
+### Features
+
+* add error handling for missing items array and missing item id ([13a49bf](https://github.com/vtex/external-promotion-provider-middleware/commit/13a49bf590281b13d5dc0af362fc8969eee2bed6))
+* add error handling to calculateExternalBenefits middleware ([01638c6](https://github.com/vtex/external-promotion-provider-middleware/commit/01638c6399fdb8afe5656ec9f8020313915718d6))
+* add error handling to externalProviderClient ([2694e2e](https://github.com/vtex/external-promotion-provider-middleware/commit/2694e2e9c3c4cc1b4d12bb7251b840a938e7efdb))
+
 ## [0.13.0](https://github.com/vtex/external-promotion-provider-middleware/compare/v0.12.0...v0.13.0) (2021-07-26)
 
 
