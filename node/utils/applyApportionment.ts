@@ -8,7 +8,7 @@ import type {
   ExternalPromotion,
 } from '../typings/protocol/response'
 
-function getFlattenedExternalPromotions(itemVariations: Variation[]) {
+export function getFlattenedExternalPromotions(itemVariations: Variation[]) {
   return itemVariations.reduce<ExternalPromotion[]>(
     (memo, variation) => memo.concat(variation.externalPromotions),
     []
