@@ -45,9 +45,11 @@ const setCustomData = async ({
     [[], []]
   )
 
+  const targetCustomAppId = 'promotion-provider-middleware'
+
   const currentExternalPromotionsField =
     customData?.customApps.filter(
-      (customApp) => customApp.id === 'promotion-provider-middleware'
+      (customApp) => customApp.id === targetCustomAppId
     )[0].fields.externalPromotions ?? '[]'
 
   const newExternalPromotionsField = JSON.parse(currentExternalPromotionsField)
