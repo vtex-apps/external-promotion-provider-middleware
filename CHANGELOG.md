@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.17.0](https://github.com/vtex/external-promotion-provider-middleware/compare/v0.16.0...v0.17.0) (2021-07-28)
+
+
+### Features
+
+* add customData service ([80f91e3](https://github.com/vtex/external-promotion-provider-middleware/commit/80f91e320a66b3baa512b8bf70467ae0418628ee))
+* add setCustomData method to applyManualPrices middleware ([276523b](https://github.com/vtex/external-promotion-provider-middleware/commit/276523bf245a977067a5a35ea49eb7a8700e1258))
+
+
+### Refacts
+
+* change typings to include undefined scenarios ([7c47354](https://github.com/vtex/external-promotion-provider-middleware/commit/7c473544585c6b191abbee486a77116acabce1ac))
+* exports getFlattenedExternalPromotions util ([4fa6e50](https://github.com/vtex/external-promotion-provider-middleware/commit/4fa6e5021de927417c39a894b6f3b10bd105fea4))
+* refact nonVariableFields and variableFields loop to be more efficient ([0ba486c](https://github.com/vtex/external-promotion-provider-middleware/commit/0ba486cc33d3ba9f7a2088f98b02b5600d9afa15))
+* refact nonVariableFields and variableFields loop to be more efficient ([d89a9f7](https://github.com/vtex/external-promotion-provider-middleware/commit/d89a9f74fa83e7e7970bb469318603d0c54235d0))
+
 ## [0.16.0](https://github.com/vtex/external-promotion-provider-middleware/compare/v0.15.0...v0.16.0) (2021-07-27)
 
 
