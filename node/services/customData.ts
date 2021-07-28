@@ -24,6 +24,7 @@ const setCustomData = async ({
   externalProviderResponse,
 }: Args) => {
   const { customData } = orderForm
+  const targetCustomAppId = 'promotion-provider-middleware'
 
   const [
     providedExternalPromotions,
@@ -45,8 +46,6 @@ const setCustomData = async ({
     [[], []]
   )
 
-  const targetCustomAppId = 'promotion-provider-middleware'
-
   const currentExternalPromotionsField =
     customData?.customApps.filter(
       (customApp) => customApp.id === targetCustomAppId
@@ -59,7 +58,7 @@ const setCustomData = async ({
   await client.setSingleCustomData(
     orderForm.orderFormId,
     {
-      appId: 'promotion-provider-middleware',
+      appId: targetCustomAppId,
       appFieldName: 'externalPromotions',
       value: JSON.stringify(newExternalPromotionsField),
     },
