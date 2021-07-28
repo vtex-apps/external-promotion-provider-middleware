@@ -1,4 +1,5 @@
 import { applyApportionment, validateIndexConsistency } from '../utils'
+import { customData } from '../services'
 
 const applyManualPrices = async (ctx: Context, next: () => Promise<any>) => {
   try {
@@ -17,6 +18,12 @@ const applyManualPrices = async (ctx: Context, next: () => Promise<any>) => {
       apportionedPayload,
       'AUTH_TOKEN'
     )
+
+    await customData.setCustomData({
+      client: ctx.clients.checkout,
+      orderForm: ctx.state.orderForm,
+      externalProviderResponse: ctx.state.externalProviderResponse,
+    })
 
     ctx.status = 204
   } catch (err) {

@@ -1,6 +1,9 @@
 import { parseOrderFormToProtocol } from './parseOrderFormToProtocol'
 import { getOrderFormId } from './getOrderFormId'
-import { applyApportionment } from './applyApportionment'
+import {
+  applyApportionment,
+  getFlattenedExternalPromotions,
+} from './applyApportionment'
 import { validateIndexConsistency } from './validateIndexConsistency'
 
 export {
@@ -8,4 +11,5 @@ export {
   getOrderFormId,
   applyApportionment,
   validateIndexConsistency,
+  getFlattenedExternalPromotions,
 }
