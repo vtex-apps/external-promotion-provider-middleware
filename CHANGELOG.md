@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.19.0](https://github.com/vtex/external-promotion-provider-middleware/compare/v0.18.0...v0.19.0) (2021-07-29)
+
+
+### Features
+
+* add error handling for when items array is falsy ([59439cd](https://github.com/vtex/external-promotion-provider-middleware/commit/59439cd076245bff785fbcfbb3fc309c0246af50))
+* add return to scenario where external provider wants no promotions applied ([158935d](https://github.com/vtex/external-promotion-provider-middleware/commit/158935d513427df8efbeffd974c1ff69b9654422))
+
+
+### Refacts
+
+* refact return getOrderFormId method to pass less parameters ([cb501cc](https://github.com/vtex/external-promotion-provider-middleware/commit/cb501ccdfc3b09d2aa7f3c0f076e69b75e13e984))
+
+
+### Tests
+
+* change calculateExternalBenefits test to fit new logic ([71661bc](https://github.com/vtex/external-promotion-provider-middleware/commit/71661bcb88422739bc6ef6c0166caabce2ecbf38))
+
 ## [0.18.0](https://github.com/vtex/external-promotion-provider-middleware/compare/v0.17.0...v0.18.0) (2021-07-29)
 
 
