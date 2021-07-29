@@ -12,11 +12,7 @@ describe('getOrderFormId', () => {
       clients: { checkout: { orderForm: jest.fn().mockResolvedValueOnce('') } },
     } as any
 
-    const next = jest.fn()
-
-    getOrderFormId(ctx.cookies, ctx.state)
-
-    expect(ctx.state.orderFormId).toBe('03db3a179c7d4a9085152068b555eee1')
+    expect(getOrderFormId(ctx.cookies)).toBe('03db3a179c7d4a9085152068b555eee1')
   })
   it('should return error when "checkout.vtex.com" cookie is not in request', async () => {
     const ctx = {
@@ -27,10 +23,8 @@ describe('getOrderFormId', () => {
       clients: { checkout: { orderForm: jest.fn().mockResolvedValueOnce('') } },
     } as any
 
-    const next = jest.fn()
-
     expect(() => {
-      getOrderFormId(ctx.cookies, ctx.state)
+      getOrderFormId(ctx.cookies)
     }).toThrow(
       'No checkout.vtex.com cookie containing the orderformId was sent'
     )
