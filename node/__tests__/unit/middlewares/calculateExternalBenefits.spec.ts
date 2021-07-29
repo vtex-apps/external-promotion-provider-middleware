@@ -105,7 +105,7 @@ describe('calculateExternalBenefits', () => {
     expect(nextSpy).not.toBeCalled()
   })
 
-  it('should not set the response body when the route does not match /simulation', async () => {
+  it('should not set the response body when the route does not match /simulation and when items array is not empty', async () => {
     const ctx = {
       state: {
         orderForm: { items: [] },
@@ -113,7 +113,9 @@ describe('calculateExternalBenefits', () => {
       req: {},
       clients: {
         externalProvider: {
-          getBenefits: jest.fn().mockResolvedValueOnce({ items: [] }),
+          getBenefits: jest
+            .fn()
+            .mockResolvedValueOnce({ items: [{ id: 1, variations: [] }] }),
         },
       },
       vtex: {
