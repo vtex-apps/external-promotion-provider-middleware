@@ -11,7 +11,9 @@ describe('calculateExternalBenefits', () => {
     state: { orderForm: { items: [] } },
     req: {},
     clients: {
-      externalProvider: { getBenefits: jest.fn() },
+      externalProvider: {
+        getBenefits: jest.fn().mockResolvedValue({ items: [] }),
+      },
     },
     body: {},
     vtex: { logger: { error: jest.fn(), info: jest.fn() }, route: { id: '' } },
@@ -69,6 +71,30 @@ describe('calculateExternalBenefits', () => {
       vtex: {
         logger: { error: jest.fn(), info: jest.fn() },
         route: { id: 'simulation' },
+      },
+    } as any
+
+    const nextSpy = jest.fn()
+
+    await calculateExternalBenefits(ctx, nextSpy)
+
+    expect(nextSpy).not.toBeCalled()
+  })
+
+  it('should not call next function when the items is [] in externalProviderResponse', async () => {
+    const ctx = {
+      state: {
+        orderForm: { items: [{ id: 1 }] },
+      },
+      req: {},
+      clients: {
+        externalProvider: {
+          getBenefits: jest.fn().mockResolvedValueOnce({ items: [] }),
+        },
+      },
+      vtex: {
+        logger: { error: jest.fn(), info: jest.fn() },
+        route: { id: '' },
       },
     } as any
 
