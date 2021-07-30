@@ -48,7 +48,7 @@ const calculateExternalBenefits = async (
     },
   })
 
-  if (JSON.stringify(ctx.state.externalProviderResponse.items) === '[]') {
+  if (Array.isArray(ctx.state.externalProviderResponse.items) && !ctx.state.externalProviderResponse.items.length) {
     ctx.status = 200
     ctx.body = { message: 'No promotions applied, Items array was sent empty' }
 
