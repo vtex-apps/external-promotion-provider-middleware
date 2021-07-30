@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.18.0](https://github.com/vtex/external-promotion-provider-middleware/compare/v0.17.0...v0.18.0) (2021-07-29)
+
+
+### Features
+
+* add deleteAllManualPrices method to getOrderFormById flow ([822e30a](https://github.com/vtex/external-promotion-provider-middleware/commit/822e30a279570238c56c5be16279e5ed4bbbf22c))
+
+
+### Bug Fixes
+
+* removes previous logic from customData updates ([ffc5b61](https://github.com/vtex/external-promotion-provider-middleware/commit/ffc5b61639d847ee473a9d5dddb649ce47373119))
+
+
+### Refacts
+
+* spreads usage of targetCustomAppId ([cc27be3](https://github.com/vtex/external-promotion-provider-middleware/commit/cc27be3f742f5a4b985e2dd14a96061cba5a6fc6))
+* store customAppId in variable ([3827ae4](https://github.com/vtex/external-promotion-provider-middleware/commit/3827ae487efd801e677b25268a2d2609fa9aa645))
+
 ## [0.17.0](https://github.com/vtex/external-promotion-provider-middleware/compare/v0.16.0...v0.17.0) (2021-07-28)
 
 

@@ -2,12 +2,17 @@ import { orderform } from '../services'
 import { getOrderFormId } from '../utils'
 
 const getOrderFormById = async (ctx: Context, next: () => Promise<any>) => {
-  getOrderFormId(ctx.cookies, ctx.state)
+  ctx.state.orderFormId = getOrderFormId(ctx.cookies)
 
   try {
-    ctx.state.orderForm = await orderform.getOrderFormById(
+    const currentOrderform = await orderform.getOrderFormById(
       ctx.clients.checkout,
       ctx.state.orderFormId as string
+    )
+
+    ctx.state.orderForm = await orderform.deleteAllManualPrices(
+      ctx.clients.checkout,
+      currentOrderform
     )
   } catch (error) {
     ctx.vtex.logger.error({

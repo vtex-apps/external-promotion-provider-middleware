@@ -15,4 +15,26 @@ const getOrderFormById = async (client: Checkout, orderFormId: string) => {
   }
 }
 
-export default { getOrderFormById }
+async function deleteAllManualPrices(
+  client: Checkout,
+  orderForm: CheckoutOrderForm
+) {
+  const { items, orderFormId } = orderForm
+
+  const orderItems = items.map((_, index) => {
+    return {
+      index,
+      price: null,
+    }
+  })
+
+  const orderFormWithoutManualPrices = ((await client.updateItems(
+    orderFormId,
+    orderItems,
+    'AUTH_TOKEN'
+  )) as unknown) as CheckoutOrderForm
+
+  return orderFormWithoutManualPrices
+}
+
+export default { getOrderFormById, deleteAllManualPrices }
