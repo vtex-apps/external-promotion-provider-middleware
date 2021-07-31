@@ -1,9 +1,17 @@
+export type MatchedParametersKeys =
+  | 'items'
+  | 'customData'
+  | 'shippingData'
+  | 'clientProfileData'
+  | 'marketingData'
+  | 'paymentData'
+
 export interface ExternalPromotionsResponseProtocol {
   items: Item[]
 }
 
 export interface MatchedParameters {
-  [key: string]: string
+  [key: MatchedParametersKeys]: string
 }
 
 export interface ExternalPromotion {
