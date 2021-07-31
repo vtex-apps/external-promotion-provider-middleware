@@ -4,12 +4,12 @@ import {
   applyApportionment,
   getFlattenedExternalPromotions,
 } from './applyApportionment'
-import { validateIndexConsistency } from './validateIndexConsistency'
+import validateProviderResponse from './validateProviderResponse'
 
 export {
   parseOrderFormToProtocol,
   getOrderFormId,
   applyApportionment,
-  validateIndexConsistency,
+  validateProviderResponse,
   getFlattenedExternalPromotions,
 }
