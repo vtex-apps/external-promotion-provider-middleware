@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.20.0](https://github.com/vtex/external-promotion-provider-middleware/compare/v0.19.0...v0.20.0) (2021-07-31)
+
+
+### Features
+
+* add new typings to matchedParams ([dcebf73](https://github.com/vtex/external-promotion-provider-middleware/commit/dcebf734e256e65280b7d793b940f2b5e339b8a9))
+* add schemaConsistency method ([97fcf6e](https://github.com/vtex/external-promotion-provider-middleware/commit/97fcf6e601a6e6c38a952edce2e0a384ad7f9fc6))
+* add schemaConsistency method to middleware ([52e9dca](https://github.com/vtex/external-promotion-provider-middleware/commit/52e9dca3961b7f9ddd6f39899dd031a6df0000b5))
+* add yup schema for providerResponse validation ([6a9ef5f](https://github.com/vtex/external-promotion-provider-middleware/commit/6a9ef5f0a5099460a43fd6a7827a1fe3ed51fd89))
+
+
+### Styles
+
+* solve linting issues ([600cc95](https://github.com/vtex/external-promotion-provider-middleware/commit/600cc95879356a7f67073f570e7753a3ab5eec7e))
+
+
+### Tests
+
+* test validateProviderResponse util ([67b1490](https://github.com/vtex/external-promotion-provider-middleware/commit/67b1490b2aedd8a7eeff6df8cfd51c38b1bbc615))
+
 ## [0.19.0](https://github.com/vtex/external-promotion-provider-middleware/compare/v0.18.0...v0.19.0) (2021-07-29)
 
 
