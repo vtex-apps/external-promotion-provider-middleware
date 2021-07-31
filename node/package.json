@@ -2,7 +2,8 @@
   "dependencies": {
     "@vtex/clients": "^2.13.0",
     "co-body": "^6.0.0",
-    "ramda": "^0.25.0"
+    "ramda": "^0.25.0",
+    "yup": "^0.32.9"
   },
   "devDependencies": {
     "@types/co-body": "^0.0.3",
