@@ -58,7 +58,10 @@ describe('validateProviderResponse', () => {
                 quantity: 1,
                 externalPromotions: [
                   {
-                    matchedParameters: { slaIds: '' },
+                    matchedParameters: {
+                      requiresAuthenticationForPreAuthorizedPaymentOption:
+                        'requiresAuthenticationForPreAuthorizedPaymentOption',
+                    },
                     identifier: 123443,
                     isPercentual: 'true',
                     value: '0.1',
@@ -70,13 +73,14 @@ describe('validateProviderResponse', () => {
         ],
       }
 
+      const expected =
+        'items[0].id must be a `number` type, but the final value was: `"33"`.·items[0].variations[0].requestIndex must be a `number` type, but the final value was: `"2"`.·items[0].variations[0].externalPromotions[0].identifier must be a `string` type, but the final value was: `123443`.·items[0].variations[0].externalPromotions[0].isPercentual must be a `boolean` type, but the final value was: `"true"`.·items[0].variations[0].externalPromotions[0].value must be a `number` type, but the final value was: `"0.1"`.·Key requiresAuthenticationForPreAuthorizedPaymentOption inside matchedParameters must have less than (or equal) 50 characters.·Value requiresAuthenticationForPreAuthorizedPaymentOption in key requiresAuthenticationForPreAuthorizedPaymentOption (matchedParameters array) must have less than (or equal) 50 characters.'
+
       await expect(
         validateProviderResponse.schemaConsistency(
           mockedUncorrectProviderResponse as any
         )
-      ).rejects.toThrowError(
-        'items[0].id must be a `number` type, but the final value was: `"33"`. items[0].variations[0].requestIndex must be a `number` type, but the final value was: `"2"`. Object key \'slaIds\' inside matchedParameters does not exist in the root of orderForm items[0].variations[0].externalPromotions[0].identifier must be a `string` type, but the final value was: `123443`. items[0].variations[0].externalPromotions[0].isPercentual must be a `boolean` type, but the final value was: `"true"`. items[0].variations[0].externalPromotions[0].value must be a `number` type, but the final value was: `"0.1"`.'
-      )
+      ).rejects.toThrowError(expected.split('·').join('\n\n'))
     })
     it('should not throw error when schema does matches', async () => {
       const mockedCorrectProviderResponse = {

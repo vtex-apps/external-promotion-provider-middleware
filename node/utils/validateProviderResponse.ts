@@ -11,7 +11,7 @@ async function schemaConsistency(
       abortEarly: false,
     })
     .catch((err) => {
-      throw new Error(err.errors.join(' '))
+      throw new Error(err.errors.join('\n\n'))
     })
 }
 
