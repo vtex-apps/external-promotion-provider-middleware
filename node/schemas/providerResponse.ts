@@ -1,54 +1,59 @@
 import * as yup from 'yup'
 import mapValues from 'lodash/mapValues'
 
-import { orderFormRootFields } from '../constants/oderformRootFields'
-
 export const providerResponseSchema = yup.object().shape({
   items: yup
     .array()
     .of(
-      yup.object({
+      yup.object().shape({
         id: yup.number().required(),
         variations: yup
           .array()
           .of(
-            yup.object({
+            yup.object().shape({
               requestIndex: yup.number().required(),
               quantity: yup.number().required(),
-              externalPromotions: yup.array().of(
-                yup.object({
-                  matchedParameters: yup.lazy((obj) =>
-                    yup.object(
-                      mapValues(obj, (_, key) => {
-                        if (orderFormRootFields.includes(key)) {
+              externalPromotions: yup
+                .array()
+                .of(
+                  yup.object().shape({
+                    identifier: yup.string(),
+                    isPercentual: yup.boolean().required(),
+                    value: yup.number().required(),
+                    matchedParameters: yup.lazy((obj) =>
+                      yup.object(
+                        mapValues(obj, (value, key) => {
                           return yup
                             .string()
                             .required()
                             .test(
                               'length',
-                              'Must have less than 150 characters',
-                              (val) => Number(val?.length) < 150
+                              `Key ${key} inside matchedParameters must have less than (or equal) 50 characters.`,
+                              () => Number(key?.length) <= 50
                             )
-                        }
-
-                        return yup
-                          .string()
-                          .test(
-                            'length',
-                            `Object key '${key}' inside matchedParameters does not exist in the root of orderForm`,
-                            (__) => false
-                          )
-                      })
-                    )
-                  ),
-                  identifier: yup.string(),
-                  isPercentual: yup.boolean().required(),
-                  value: yup.number().required(),
-                })
-              ),
+                            .test(
+                              'length',
+                              `Value ${value} in key ${key} (matchedParameters array) must have less than (or equal) 50 characters.`,
+                              (val) => Number(val?.length) <= 50
+                            )
+                        })
+                      )
+                    ),
+                  })
+                )
+                .required()
+                .test({
+                  message:
+                    'externalPromotions array should have at least one object.',
+                  test: (arr) => !!arr?.length,
+                }),
             })
           )
-          .required(),
+          .required()
+          .test({
+            message: 'variations array should have at least one object.',
+            test: (arr) => !!arr?.length,
+          }),
       })
     )
     .required(),
