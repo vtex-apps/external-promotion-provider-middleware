@@ -9,6 +9,12 @@ const getAppConfiguration = async (ctx: Context, next: () => Promise<any>) => {
     )
 
     ctx.vtex.settings = { ...ctx.vtex.settings, ...appSettings }
+
+    if (!ctx.vtex.settings.externalEndpoint) {
+      throw new Error(
+        `No external endpoint was set. Go to https://${process.env.VTEX_WORKSPACE}--${process.env.VTEX_ACCOUNT}.myvtex.com/admin/apps/${process.env.VTEX_APP_ID}/setup/ and set your external endpoint`
+      )
+    }
   } catch (error) {
     ctx.vtex.logger.error({
       getAppSettingsError: {
@@ -16,7 +22,11 @@ const getAppConfiguration = async (ctx: Context, next: () => Promise<any>) => {
         content: error,
       },
     })
-    throw new Error("Couldn't get app settings")
+
+    ctx.status = 400
+    ctx.body = { error: error.message }
+
+    return
   }
 
   await next()

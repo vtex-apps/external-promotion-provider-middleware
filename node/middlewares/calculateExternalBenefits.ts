@@ -33,6 +33,7 @@ const calculateExternalBenefits = async (
   }
 
   if (ctx.vtex.route.id === 'simulation') {
+    ctx.status = 200
     ctx.body = ctx.state.externalProviderResponse
 
     return
