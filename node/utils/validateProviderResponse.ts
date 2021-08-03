@@ -1,25 +1,29 @@
+import schemas from '../schemas'
 import type { CheckoutOrderForm } from '../typings/global'
 import type { ExternalPromotionsResponseProtocol } from '../typings/protocol/response'
 
-export async function validateIndexConsistency(
+async function schemaConsistency(
+  providerResponse: ExternalPromotionsResponseProtocol
+) {
+  await schemas.providerResponseSchema
+    .validate(providerResponse, {
+      strict: true,
+      abortEarly: false,
+    })
+    .catch((err) => {
+      throw new Error(err.errors.join('\n\n'))
+    })
+}
+
+function indexConsistency(
   orderForm: CheckoutOrderForm,
   providerResponse: ExternalPromotionsResponseProtocol
 ) {
   const { items: orderFormItems } = orderForm
   const { items } = providerResponse
 
-  if (!items) {
-    throw new Error(
-      `Items array is obligatory. If no promotions are going to be applied, this property should be sent as an empty array`
-    )
-  }
-
   items.forEach((item) => {
     const { id, variations } = item
-
-    if (!variations) {
-      throw new Error(`Variations array is missing in skuId ${id}.`)
-    }
 
     variations.forEach((variation) => {
       const { requestIndex } = variation
@@ -32,3 +36,5 @@ export async function validateIndexConsistency(
     })
   })
 }
+
+export default { schemaConsistency, indexConsistency }

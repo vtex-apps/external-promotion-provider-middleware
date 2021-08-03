@@ -1,9 +1,13 @@
-import { applyApportionment, validateIndexConsistency } from '../utils'
+import { applyApportionment, validateProviderResponse } from '../utils'
 import { customData } from '../services'
 
 const applyManualPrices = async (ctx: Context, next: () => Promise<any>) => {
   try {
-    validateIndexConsistency(
+    await validateProviderResponse.schemaConsistency(
+      ctx.state.externalProviderResponse
+    )
+
+    validateProviderResponse.indexConsistency(
       ctx.state.orderForm,
       ctx.state.externalProviderResponse
     )
