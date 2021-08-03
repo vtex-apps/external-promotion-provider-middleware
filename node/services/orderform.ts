@@ -28,13 +28,17 @@ async function deleteAllManualPrices(
     }
   })
 
-  const orderFormWithoutManualPrices = ((await client.updateItems(
-    orderFormId,
-    orderItems,
-    'AUTH_TOKEN'
-  )) as unknown) as CheckoutOrderForm
+  try {
+    const orderFormWithoutManualPrices = ((await client.updateItems(
+      orderFormId,
+      orderItems,
+      'AUTH_TOKEN'
+    )) as unknown) as CheckoutOrderForm
 
-  return orderFormWithoutManualPrices
+    return orderFormWithoutManualPrices
+  } catch (error) {
+    throw new Error('Error when removing all manual prices from orderform')
+  }
 }
 
 export default { getOrderFormById, deleteAllManualPrices }

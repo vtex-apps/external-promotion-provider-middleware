@@ -3,6 +3,7 @@ import { getOrderFormById } from '../../../middlewares'
 describe('getOrderFormById', () => {
   it('should return error when fecthing the orderform fails', async () => {
     const ctx = {
+      body: '',
       state: { orderform: {}, orderFormId: {} },
       cookies: {
         get: jest
@@ -10,13 +11,39 @@ describe('getOrderFormById', () => {
           .mockReturnValueOnce('__ofid=03db3a179c7d4a9085152068b555eee1'),
       },
       vtex: { logger: { error: jest.fn() } },
-      clients: { checkout: { orderForm: jest.fn().mockRejectedValue('') } },
+      clients: { checkout: { orderForm: jest.fn().mockRejectedValueOnce('') } },
     } as any
 
     const next = jest.fn()
 
-    await expect(getOrderFormById(ctx, next)).rejects.toThrow(
-      'Error when fetching orderform'
-    )
+    await getOrderFormById(ctx, next)
+
+    expect(ctx.body).toMatchObject({ error: 'Error when fetching orderform' })
+  })
+  it('should return error when deleting all manual prices fails', async () => {
+    const ctx = {
+      body: '',
+      state: { orderform: {}, orderFormId: {} },
+      cookies: {
+        get: jest
+          .fn()
+          .mockReturnValueOnce('__ofid=03db3a179c7d4a9085152068b555eee1'),
+      },
+      vtex: { logger: { error: jest.fn() } },
+      clients: {
+        checkout: {
+          orderForm: jest.fn().mockResolvedValueOnce({ items: [] }),
+          updateItems: jest.fn().mockRejectedValueOnce(''),
+        },
+      },
+    } as any
+
+    const next = jest.fn()
+
+    await getOrderFormById(ctx, next)
+
+    expect(ctx.body).toMatchObject({
+      error: 'Error when removing all manual prices from orderform',
+    })
   })
 })

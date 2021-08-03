@@ -2,9 +2,9 @@ import { orderform } from '../services'
 import { getOrderFormId } from '../utils'
 
 const getOrderFormById = async (ctx: Context, next: () => Promise<any>) => {
-  ctx.state.orderFormId = getOrderFormId(ctx.cookies)
-
   try {
+    ctx.state.orderFormId = getOrderFormId(ctx.cookies)
+
     const currentOrderform = await orderform.getOrderFormById(
       ctx.clients.checkout,
       ctx.state.orderFormId as string
@@ -21,7 +21,10 @@ const getOrderFormById = async (ctx: Context, next: () => Promise<any>) => {
         content: ctx.state.orderFormId,
       },
     })
-    throw new Error(error)
+    ctx.status = 400
+    ctx.body = { error: error.message }
+
+    return
   }
 
   await next()
