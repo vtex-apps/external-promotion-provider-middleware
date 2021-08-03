@@ -6,24 +6,21 @@ import type { ExternalPromotionsResponseProtocol } from '../typings/protocol/res
 
 export default class ExternalProvider extends ExternalClient {
   constructor(context: IOContext, options?: InstanceOptions) {
-    // TODO: Validate how to add an outbound policy dynamically to hosts
     super(context.settings.externalEndpoint, context, options)
   }
 
-  /* eslint-disable @typescript-eslint/ban-ts-comment, @typescript-eslint/no-unused-vars */
-  // @ts-ignore
   public async getBenefits(
     payload: ExternalPromotionsRequestProtocol
   ): Promise<ExternalPromotionsResponseProtocol> {
-    // TODO: Implement external request
-
     try {
       const response = await this.http.post<ExternalPromotionsResponseProtocol>(
         '/',
         payload,
         {
-          // TODO: Change metric
-          metric: 'status-get',
+          metric: 'get-benefits',
+          timeout: 12500,
+          timeoutErrorMessage:
+            'Timeout waiting for response from external provider',
         }
       )
 

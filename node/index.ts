@@ -18,14 +18,12 @@ import type { CheckoutOrderForm } from './typings/global'
 import type { ExternalPromotionsRequestProtocol } from './typings/protocol/request'
 import type { ExternalPromotionsResponseProtocol } from './typings/protocol/response'
 
-const TIMEOUT_MS = 800
+const TIMEOUT_MS = 1000
 
-// Create a LRU memory cache for the Status client.
 // The @vtex/api HttpClient respects Cache-Control headers and uses the provided cache.
 const memoryCache = new LRUCache<string, any>({ max: 5000 })
 
-// TODO: Change key for `status`
-metrics.trackCache('status', memoryCache)
+metrics.trackCache('get-benefits', memoryCache)
 
 // This is the configuration for clients available in `ctx.clients`.
 const clients: ClientsConfig<Clients> = {
@@ -37,11 +35,6 @@ const clients: ClientsConfig<Clients> = {
       retries: 2,
       timeout: TIMEOUT_MS,
     },
-    // This key will be merged with the default options and add this cache to our Status client.
-    // TODO: Change key for `status`
-    status: {
-      memoryCache,
-    },
   },
 }
 
@@ -50,7 +43,6 @@ declare global {
   type Context = ServiceContext<Clients, State>
 
   interface InstalledAppEvent extends EventContext<Clients> {
-    // eslint-disable-next-line @typescript-eslint/ban-types
     body: { id?: string }
   }
 
@@ -76,7 +68,6 @@ export default new Service({
       ],
     }),
     simulation: method({
-      // TODO: Implement routes that receive orderForm (or smth) directly and calls the external api without applying manual prices
       POST: [getAppConfiguration, calculateExternalBenefits],
     }),
   },
