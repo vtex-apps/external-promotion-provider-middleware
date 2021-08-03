@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.21.0](https://github.com/vtex/external-promotion-provider-middleware/compare/v0.20.0...v0.21.0) (2021-08-03)
+
+
+### Features
+
+* add 30s timeout to app routes ([d524ecb](https://github.com/vtex/external-promotion-provider-middleware/commit/d524ecb7e64fc193b665a064dcf0511b96056b3b))
+* add new yup validations and remove old matchedParams logic ([bf29dfd](https://github.com/vtex/external-promotion-provider-middleware/commit/bf29dfd4127f7b34b960232ff84f3070c3f43042))
+* improve error legibility from yup errors and adequate test to these changes ([67bdb27](https://github.com/vtex/external-promotion-provider-middleware/commit/67bdb27e18a2c603e266140a481e6d53094f5d93))
+* set timeout for both app and externalProvider client ([3054fd2](https://github.com/vtex/external-promotion-provider-middleware/commit/3054fd2e1a80326448138c59e7a33c03e3c7c63e))
+
+
+### Refacts
+
+* improves error handling and removes checkout client ([8a680ea](https://github.com/vtex/external-promotion-provider-middleware/commit/8a680ea14584b7608d2b66c1b795e14bd03a81a6))
+
+
+### Tests
+
+* add tests to handle improved errors ([04ef08a](https://github.com/vtex/external-promotion-provider-middleware/commit/04ef08a85e8122273f4d8a3c717bdccf12ea6ddf))
+
 ## [0.20.0](https://github.com/vtex/external-promotion-provider-middleware/compare/v0.19.0...v0.20.0) (2021-07-31)
 
 
