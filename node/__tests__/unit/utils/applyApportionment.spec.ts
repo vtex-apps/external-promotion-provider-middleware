@@ -23,4 +23,29 @@ describe('applyApportionment', () => {
 
     expect(apportionedPayload).toMatchObject(expectedPayload)
   })
+  it('should be able to throw error when skuId has two instances at the items array', () => {
+    const { items } = parsedProtocol
+
+    items.push({
+      id: '30',
+      productId: '3',
+      variations: [
+        {
+          assemblies: [],
+          tax: 0,
+          price: 135714,
+          listPrice: 135714,
+          manualPrice: null,
+          sellingPrice: 135714,
+          quantity: 1,
+        },
+      ],
+    } as any)
+
+    const newParsedProtocol = { ...parsedProtocol, items: [...items] }
+
+    expect(() => {
+      applyApportionment(newParsedProtocol as any, externalProviderResponse)
+    }).toThrowError(`Multiple items with SKUID 30`)
+  })
 })
