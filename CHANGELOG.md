@@ -2,6 +2,34 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [](https://github.com/vtex/external-promotion-provider-middleware/compare/v0.22.0...v) (2021-08-04)
+
+
+### Features
+
+* add 0 retries configuration for externalProvider client ([6f6c4bc](https://github.com/vtex/external-promotion-provider-middleware/commit/6f6c4bcef38f9bfae79915b9ff516e7b99b37fa7))
+
+
+### Bug Fixes
+
+* fix undefined error for cases where external provider sends index bigger than orderform ([869d684](https://github.com/vtex/external-promotion-provider-middleware/commit/869d6841e153370f01acb44085ba2d62c0975c03))
+
+
+### Refacts
+
+* concatanate error thrown by client and custom error message ([467898c](https://github.com/vtex/external-promotion-provider-middleware/commit/467898cb6e5590928fc20ce58f4b922a7b182ef4))
+
+
+### Chores
+
+* raise time to live of the application ([04aeb9c](https://github.com/vtex/external-promotion-provider-middleware/commit/04aeb9c91b4bed55189c335ef3a06434e3db4870))
+* version bump ([0c3a6f1](https://github.com/vtex/external-promotion-provider-middleware/commit/0c3a6f18a82efd06b0e05f804ab2cedca0963089))
+
+
+### Tests
+
+* add test that throws error when requestIndex is bigger than any index in orderform ([abbae0f](https://github.com/vtex/external-promotion-provider-middleware/commit/abbae0f894fac0265e68a6d3b7412ec9fd0d091c))
+
 ## [0.22.0](https://github.com/vtex/external-promotion-provider-middleware/compare/v0.21.0...v0.22.0) (2021-08-04)
 
 
