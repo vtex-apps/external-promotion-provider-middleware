@@ -49,6 +49,6 @@ describe('customData', () => {
         externalProviderResponse,
         orderForm,
       } as any)
-    ).rejects.toThrowError('It was not possible to set customData')
+    ).rejects.toThrowError('It was not possible to set customData.')
   })
 })

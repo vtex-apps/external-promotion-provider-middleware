@@ -37,7 +37,7 @@ const setCustomData = async ({
       'AUTH_TOKEN'
     )
   } catch (error) {
-    throw new Error('It was not possible to set customData')
+    throw new Error(`It was not possible to set customData. ${error}`)
   }
 }
 
