@@ -28,7 +28,7 @@ function indexConsistency(
     variations.forEach((variation) => {
       const { requestIndex } = variation
 
-      if (Number(orderFormItems[requestIndex].id) !== id) {
+      if (Number(orderFormItems[requestIndex]?.id) !== id) {
         throw new Error(
           `RequestIndex from response does not match orderForm's original index for skuId ${id}`
         )
