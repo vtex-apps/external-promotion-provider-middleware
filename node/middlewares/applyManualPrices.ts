@@ -31,6 +31,16 @@ const applyManualPrices = async (ctx: Context, next: () => Promise<any>) => {
 
     ctx.status = 204
   } catch (err) {
+    ctx.vtex.logger.error({
+      applyManualPrices: {
+        status: 'failed',
+        content: {
+          error: err.message,
+          orderForm: ctx.state.orderForm,
+          externalProviderResponse: ctx.state.externalProviderResponse,
+        },
+      },
+    })
     ctx.status = 400
     ctx.body = { error: err.message }
 
