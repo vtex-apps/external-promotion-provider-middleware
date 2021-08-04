@@ -4,6 +4,8 @@ import { ExternalClient } from '@vtex/api'
 import type { ExternalPromotionsRequestProtocol } from '../typings/protocol/request'
 import type { ExternalPromotionsResponseProtocol } from '../typings/protocol/response'
 
+const TIMEOUT_EXTERNAL = 12500
+
 export default class ExternalProvider extends ExternalClient {
   constructor(context: IOContext, options?: InstanceOptions) {
     super(context.settings.externalEndpoint, context, options)
@@ -18,9 +20,10 @@ export default class ExternalProvider extends ExternalClient {
         payload,
         {
           metric: 'get-benefits',
-          timeout: 12500,
+          timeout: TIMEOUT_EXTERNAL,
           timeoutErrorMessage:
             'Timeout waiting for response from external provider',
+          retries: 0,
         }
       )
 

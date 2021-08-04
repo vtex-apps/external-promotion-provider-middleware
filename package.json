@@ -1,8 +1,8 @@
 {
-  "name": "service-example",
+  "name": "promotion-provider-middleware",
   "private": true,
   "license": "UNLICENSED",
-  "version": "0.22.0",
+  "version": "0.22.0-beta.1",
   "scripts": {
     "lint": "eslint --ext js,jsx,ts,tsx .",
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json}\"",
