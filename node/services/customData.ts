@@ -26,15 +26,19 @@ const setCustomData = async ({
     }
   )
 
-  await client.setSingleCustomData(
-    orderForm.orderFormId,
-    {
-      appId: targetCustomAppId,
-      appFieldName: 'externalPromotions',
-      value: JSON.stringify(providedExternalPromotions),
-    },
-    'AUTH_TOKEN'
-  )
+  try {
+    await client.setSingleCustomData(
+      orderForm.orderFormId,
+      {
+        appId: targetCustomAppId,
+        appFieldName: 'externalPromotions',
+        value: JSON.stringify(providedExternalPromotions),
+      },
+      'AUTH_TOKEN'
+    )
+  } catch (error) {
+    throw new Error('It was not possible to set customData')
+  }
 }
 
 export default { setCustomData }
