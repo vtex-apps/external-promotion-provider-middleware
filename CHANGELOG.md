@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.22.0](https://github.com/vtex/external-promotion-provider-middleware/compare/v0.21.0...v0.22.0) (2021-08-04)
+
+
+### Features
+
+* add error handling to setSingleCustomData method ([2ab66ae](https://github.com/vtex/external-promotion-provider-middleware/commit/2ab66ae48b238a4e69f807971134d1617ef7c2b9))
+* add splunk logs for when something fails in applyManualPrices middleware ([c52ee33](https://github.com/vtex/external-promotion-provider-middleware/commit/c52ee3353b6443439c991d38ed97bd34c3962ec8))
+
+
+### Tests
+
+* add new test to parseOrderFormToProtocol util ([f815062](https://github.com/vtex/external-promotion-provider-middleware/commit/f815062eccd75d2d160f5ee20904e7cf7923ffe7))
+* test applyApportionment middleware ([0b585d8](https://github.com/vtex/external-promotion-provider-middleware/commit/0b585d85b5cc93aeed3f4782527acd430fd73fe5))
+* test applyManualPrices middleware ([283c2e2](https://github.com/vtex/external-promotion-provider-middleware/commit/283c2e285d978ab2ccbaf93a79116f9d8dcd8eda))
+* test customData service ([88cc5fb](https://github.com/vtex/external-promotion-provider-middleware/commit/88cc5fb8208d9d0b9e6483b220ebeb5cff9a4984))
+* test getOrderFormById middleware ([12f3251](https://github.com/vtex/external-promotion-provider-middleware/commit/12f3251fed9b66a22ec75f06d9534d6a518d7a05))
+* test orderForm service ([418f22e](https://github.com/vtex/external-promotion-provider-middleware/commit/418f22e10ebb5c00f39ab44cf6aa2959725b8f8f))
+
 ## [0.21.0](https://github.com/vtex/external-promotion-provider-middleware/compare/v0.20.0...v0.21.0) (2021-08-03)
 
 
