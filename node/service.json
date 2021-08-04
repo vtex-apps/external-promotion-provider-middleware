@@ -1,6 +1,6 @@
 {
   "memory": 256,
-  "ttl": 10,
+  "ttl": 120,
   "timeout": 30,
   "minReplicas": 2,
   "maxReplicas": 4,
