@@ -37,6 +37,38 @@ describe('validateProviderResponse', () => {
         `RequestIndex from response does not match orderForm's original index for skuId ${mockedUncorrectProviderResponse.items[0].id}`
       )
     })
+    it('should be able to throw error when requestIndex does not exist in original orderForm', () => {
+      const mockedUncorrectProviderResponse = {
+        items: [
+          {
+            id: 33,
+            variations: [
+              {
+                requestIndex: 10,
+                quantity: 1,
+                externalPromotions: [
+                  {
+                    matchedParameters: {},
+                    identifier: '3f0c2115-10a6-4fda-aec4-5950d8de9a6c',
+                    isPercentual: true,
+                    value: 0.1,
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+      }
+
+      expect(() => {
+        validateProviderResponse.indexConsistency(
+          orderForm as any,
+          mockedUncorrectProviderResponse
+        )
+      }).toThrowError(
+        `RequestIndex from response does not match orderForm's original index for skuId ${mockedUncorrectProviderResponse.items[0].id}`
+      )
+    })
     it('should not throw error when requestIndex matches index in orderForm', () => {
       expect(
         validateProviderResponse.indexConsistency(
