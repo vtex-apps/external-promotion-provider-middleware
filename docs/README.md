@@ -10,7 +10,7 @@ You can install it through the command-line interface:
 vtex install vtex.promotion-provider-middleware@0.x
 ```
 
-Right after installation, the external endpoint needs to be set. To make this configuration, go to the page https://{{accountName}}.myvtex.com/admin/apps , search for Promotion Provider Middleware, click on the Settings button, set the External Endpoint and save your configurations.
+Right after installation, the external endpoint needs to be set. To make this configuration, go to the page `https://{{accountName}}.myvtex.com/admin/apps` , search for `Promotion Provider Middleware`, click on the Settings button, set the External Endpoint and save your configurations.
 
 Upon saving the settings, this application will set the whole environment to comply with its necessities, meaning that the following actions will be done automatically by the app:
 
