@@ -33,9 +33,7 @@ All this route needs to be initiated is the cookie `checkout.vtex.com` containin
 * Parse the orderForm according to the protocol (more details later on);
 * Send the payload to the external provider.
 
-```
-🔎 It is worth mentioning that there's a 12.5 seconds timeout attributed to the external provider with 0 retries. Meaning that the external provider has this exact time to deliver a response to our application.
-```
+> 🔎 It is worth mentioning that there's a 12.5 seconds timeout attributed to the external provider with 0 retries. Meaning that the external provider has this exact time to deliver a response to our application.
 The object sent to the external provider looks like the following:
 > Observation: The objects customData, shippingData, clientProfileData, paymentData are exactly the same as seen in the orderForm.
 ```typescript
