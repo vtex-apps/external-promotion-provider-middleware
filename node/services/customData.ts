@@ -7,7 +7,7 @@ import { getFlattenedExternalPromotions } from '../utils'
 type Args = {
   client: Checkout
   orderForm: CheckoutOrderForm
-  externalProviderResponse: ExternalPromotionsResponseProtocol
+  externalProviderResponse: ExternalPromotionsResponseProtocol | null
 }
 
 const setCustomData = async ({
@@ -17,7 +17,7 @@ const setCustomData = async ({
 }: Args) => {
   const targetCustomAppId = 'promotion-provider-middleware'
 
-  const providedExternalPromotions = externalProviderResponse.items.map(
+  const providedExternalPromotions = externalProviderResponse?.items.map(
     (item) => {
       return {
         id: item.id,
@@ -26,13 +26,17 @@ const setCustomData = async ({
     }
   )
 
+  const value = providedExternalPromotions
+    ? JSON.stringify(providedExternalPromotions)
+    : 'No external promotions were applied'
+
   try {
     await client.setSingleCustomData(
       orderForm.orderFormId,
       {
         appId: targetCustomAppId,
         appFieldName: 'externalPromotions',
-        value: JSON.stringify(providedExternalPromotions),
+        value,
       },
       'AUTH_TOKEN'
     )
