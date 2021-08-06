@@ -2,7 +2,7 @@
   "name": "promotion-provider-middleware",
   "private": true,
   "license": "UNLICENSED",
-  "version": "0.22.0-beta.1",
+  "version": "0.22.0-beta.2",
   "scripts": {
     "lint": "eslint --ext js,jsx,ts,tsx .",
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json}\"",
