@@ -112,7 +112,7 @@ The `matchedParameters` property should have `key` and `value` as strings with a
 
 After the external provider response, if it all went well, the middleware will use the API [Update cart items](https://developers.vtex.com/vtex-rest-api/reference/cart-update#itemsupdate) to update the prices in the cart respecting the discounts sent.
 
-An important reminder, every promotion configured in the promotions module are equipped with a flag called `Allows accumulate with manual prices`, if this flag is checked, first the external promotion will be applied and only then the other promotions will apply. If this flag remains unchecked, when the external promotion gets applied, the respective promotion will not be applied.
+An important reminder, every promotion configured in the promotions module is equipped with a flag called `Allows accumulate with manual prices`, if this flag is checked, first the external promotion will be applied, and only then the other promotions will apply. If this flag remains unchecked, when the external promotion gets applied, the respective promotion will not be applied.
 
 ### Simulation:
 `POST /_v/promotion-provider/simulation`
