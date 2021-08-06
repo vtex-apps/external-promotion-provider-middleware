@@ -84,6 +84,7 @@ describe('getOrderFormById', () => {
         checkout: {
           orderForm: jest.fn().mockResolvedValueOnce({ items: [] }),
           updateItems: jest.fn().mockResolvedValueOnce(''),
+          setSingleCustomData: jest.fn().mockResolvedValueOnce(''),
         },
       },
     } as any
