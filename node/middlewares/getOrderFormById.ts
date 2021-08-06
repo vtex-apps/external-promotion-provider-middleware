@@ -1,4 +1,4 @@
-import { orderform } from '../services'
+import { customData, orderform } from '../services'
 import { getOrderFormId } from '../utils'
 
 const getOrderFormById = async (ctx: Context, next: () => Promise<any>) => {
@@ -14,6 +14,13 @@ const getOrderFormById = async (ctx: Context, next: () => Promise<any>) => {
       ctx.clients.checkout,
       currentOrderform
     )
+
+    // this method is necessary to clean customData
+    await customData.setCustomData({
+      client: ctx.clients.checkout,
+      orderForm: ctx.state.orderForm,
+      externalProviderResponse: null,
+    })
   } catch (error) {
     ctx.vtex.logger.error({
       getOrderFormById: {
