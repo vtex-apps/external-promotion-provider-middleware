@@ -1,6 +1,6 @@
 # Promotion Provider Middleware
 
-This app allows any external provider to have its promotions applied to any SKU in the cart during an end user checkout experience.
+This app allows external providers to apply promotions to any SKUs in the shopping cart during an end-user checkout experience.
 
 ## Getting Started
 
