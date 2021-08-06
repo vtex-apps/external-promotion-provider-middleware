@@ -73,6 +73,11 @@ interface ExternalPromotionsRequestProtocol {
   clientProfileData: ClientProfileData
   marketingData?: MarketingData
   paymentData: PaymentData
+  totalizers: {
+    id: string
+    name: string
+    value: number
+  }[]
 }
 ```
 

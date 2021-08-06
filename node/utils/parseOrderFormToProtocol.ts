@@ -45,6 +45,7 @@ export function parseOrderFormToProtocol({
   clientProfileData,
   marketingData,
   paymentData,
+  totalizers,
 }: CheckoutOrderForm): ExternalPromotionsRequestProtocol {
   if (!items) {
     throw new Error('Property "items" is obligatory')
@@ -141,6 +142,7 @@ export function parseOrderFormToProtocol({
     clientProfileData,
     marketingData,
     paymentData: { payments: paymentData?.payments },
+    totalizers,
   }
 
   return parsedOrderFormToProtocol
