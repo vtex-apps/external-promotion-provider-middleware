@@ -1,6 +1,6 @@
 # Promotion Provider Middleware
 
-This app allows any external provider to have its promotions applied to any SKU in the cart during an end user checkout experience.
+This app allows external providers to apply promotions to any SKUs in the shopping cart during an end-user checkout experience.
 
 ## Getting Started
 
@@ -33,9 +33,7 @@ All this route needs to be initiated is the cookie `checkout.vtex.com` containin
 * Parse the orderForm according to the protocol (more details later on);
 * Send the payload to the external provider.
 
-```
-🔎 It is worth mentioning that there's a 12.5 seconds timeout attributed to the external provider with 0 retries. Meaning that the external provider has this exact time to deliver a response to our application.
-```
+> 🔎 It is worth mentioning that there's a 12.5 seconds timeout attributed to the external provider with 0 retries. Meaning that the external provider has this exact time to deliver a response to our application.
 The object sent to the external provider looks like the following:
 > Observation: The objects customData, shippingData, clientProfileData, paymentData are exactly the same as seen in the orderForm.
 ```typescript
@@ -75,6 +73,11 @@ interface ExternalPromotionsRequestProtocol {
   clientProfileData: ClientProfileData
   marketingData?: MarketingData
   paymentData: PaymentData
+  totalizers: {
+    id: string
+    name: string
+    value: number
+  }[]
 }
 ```
 
@@ -112,14 +115,14 @@ The `matchedParameters` property should have `key` and `value` as strings with a
 
 After the external provider response, if it all went well, the middleware will use the API [Update cart items](https://developers.vtex.com/vtex-rest-api/reference/cart-update#itemsupdate) to update the prices in the cart respecting the discounts sent.
 
-An important reminder, every promotion configured in the promotions module are equipped with a flag called `Allows accumulate with manual prices`, if this flag is checked, first the external promotion will be applied and only then the other promotions will apply. If this flag remains unchecked, when the external promotion gets applied, the respective promotion will not be applied.
+An important reminder, every promotion configured in the promotions module is equipped with a flag called `Allows accumulate with manual prices`, if this flag is checked, first the external promotion will be applied, and only then the other promotions will apply. If this flag remains unchecked, when the external promotion gets applied, the respective promotion will not be applied.
 
 ### Simulation:
 `POST /_v/promotion-provider/simulation`
 
-This route is responsible for only consulting the external provider, this route <strong>does not</strong> apply discounts.
+This route is only responsible for consulting the external provider, and <strong>does not</strong> apply discounts.
 
-In order to put this route in use, all you need to do is send a request body containing the `items` array, which, in this route, is exactly the same as it is in the ordeForm.
+In order to put this route in use, all you need to do is send a request body containing the `items` array, which for this route is exactly the same as it is in the orderForm.
 
 Besides the `items` array, you could also send `customData`, `shippingData`, `clientProfileData`, `marketingData`, `paymentData`.
 
