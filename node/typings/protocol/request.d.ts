@@ -5,6 +5,13 @@ export interface ExternalPromotionsRequestProtocol {
   clientProfileData: ClientProfileData
   marketingData?: MarketingData
   paymentData: PaymentData
+  totalizers: Totalizer[]
+}
+
+export interface Totalizer {
+  id: string
+  name: string
+  value: number
 }
 
 export interface MarketingData {
