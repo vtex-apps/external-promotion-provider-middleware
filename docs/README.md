@@ -119,7 +119,7 @@ An important reminder, every promotion configured in the promotions module is eq
 
 This route is only responsible for consulting the external provider, and <strong>does not</strong> apply discounts.
 
-In order to put this route in use, all you need to do is send a request body containing the `items` array, which, in this route, is exactly the same as it is in the ordeForm.
+In order to put this route in use, all you need to do is send a request body containing the `items` array, which for this route is exactly the same as it is in the orderForm.
 
 Besides the `items` array, you could also send `customData`, `shippingData`, `clientProfileData`, `marketingData`, `paymentData`.
 
