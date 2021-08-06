@@ -117,7 +117,7 @@ An important reminder, every promotion configured in the promotions module is eq
 ### Simulation:
 `POST /_v/promotion-provider/simulation`
 
-This route is responsible for only consulting the external provider, this route <strong>does not</strong> apply discounts.
+This route is only responsible for consulting the external provider, and <strong>does not</strong> apply discounts.
 
 In order to put this route in use, all you need to do is send a request body containing the `items` array, which, in this route, is exactly the same as it is in the ordeForm.
 
