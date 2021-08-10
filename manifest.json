@@ -1,7 +1,7 @@
 {
   "name": "promotion-provider-middleware",
   "vendor": "vtex",
-  "version": "0.22.0-beta.6",
+  "version": "0.23.0",
   "title": "Promotion Provider Middleware",
   "description": "Promotion provider middleware for external integrations",
   "mustUpdateAt": "2018-01-04",
@@ -41,7 +41,9 @@
     },
     "free": true,
     "type": "free",
-    "availableCountries": ["*"]
+    "availableCountries": [
+      "*"
+    ]
   },
   "settingsSchema": {
     "title": "Promotion Provider Middleware",
