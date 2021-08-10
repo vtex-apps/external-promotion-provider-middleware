@@ -51,6 +51,7 @@ interface ExternalPromotionsRequestProtocol {
     availability: string
     measurementUnit: string
     variations: {
+      index: number
       assemblies: any[]
       tax: number
       price: number
