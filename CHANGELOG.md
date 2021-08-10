@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.22.0-beta.7](https://github.com/vtex/external-promotion-provider-middleware/compare/v0.22.0-beta.5...v0.22.0-beta.7) (2021-08-10)
+
+
+### Features
+
+* add index property to request protocol ([c90b43e](https://github.com/vtex/external-promotion-provider-middleware/commit/c90b43e0b1f83c4b1889a16ea23befb86c53cda7))
+
+
+### Chores
+
+* bump version ([d57dae2](https://github.com/vtex/external-promotion-provider-middleware/commit/d57dae2d90d2d65237c53a1602a2d16098aa9994))
+
+
+### Tests
+
+* adjust mock to fit new model ([cf38162](https://github.com/vtex/external-promotion-provider-middleware/commit/cf3816287892b32c7923f9bc960912484803ff93))
+
 ## [0.22.0](https://github.com/vtex/external-promotion-provider-middleware/compare/v0.21.0...v0.22.0) (2021-08-04)
 
 
