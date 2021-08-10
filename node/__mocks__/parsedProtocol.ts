@@ -18,6 +18,7 @@ export const parsedProtocol = {
       measurementUnit: 'un',
       variations: [
         {
+          index: 0,
           assemblies: [],
           tax: 0,
           price: 1000,
@@ -35,6 +36,7 @@ export const parsedProtocol = {
           sellerChain: ['1'],
         },
         {
+          index: 1,
           assemblies: [],
           tax: 0,
           price: 1000,
@@ -80,6 +82,7 @@ export const parsedProtocol = {
       measurementUnit: 'un',
       variations: [
         {
+          index: 2,
           assemblies: [],
           tax: 0,
           price: 135714,
@@ -116,6 +119,7 @@ export const parsedProtocol = {
       measurementUnit: 'un',
       variations: [
         {
+          index: 3,
           assemblies: [],
           tax: 0,
           price: 2000,
@@ -151,6 +155,7 @@ export const parsedProtocol = {
           sellerChain: ['1'],
         },
         {
+          index: 4,
           assemblies: [],
           tax: 0,
           price: 2000,
@@ -186,6 +191,7 @@ export const parsedProtocol = {
           sellerChain: ['1'],
         },
         {
+          index: 5,
           assemblies: [],
           tax: 0,
           price: 2000,
