@@ -52,6 +52,7 @@ export interface PriceTag {
 }
 
 export interface Variation {
+  index: number
   assemblies: any[]
   tax: number
   price: number
