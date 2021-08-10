@@ -21,6 +21,7 @@ interface INonVariableFields {
 }
 
 interface IVariableFields {
+  index: number
   assemblies?: any[]
   tax?: number
   price?: number
@@ -81,6 +82,7 @@ export function parseOrderFormToProtocol({
       })
 
       variableFields.push({
+        index,
         assemblies: item.assemblies,
         tax: item.tax,
         price: item.price,
