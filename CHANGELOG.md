@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.23.0](https://github.com/vtex/external-promotion-provider-middleware/compare/v0.22.0-beta.7...v0.22.0) (2021-08-16)
+
 ## [0.22.0-beta.7](https://github.com/vtex/external-promotion-provider-middleware/compare/v0.22.0-beta.5...v0.22.0-beta.7) (2021-08-10)
 
 
