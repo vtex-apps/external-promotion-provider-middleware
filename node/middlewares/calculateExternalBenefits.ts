@@ -43,7 +43,14 @@ const calculateExternalBenefits = async (
     calculateExternalBenefits: {
       status: 'External endpoint returned',
       content: {
-        orderForm: ctx.state.orderForm,
+        orderForm: {
+          items: ctx.state.orderForm.items,
+          totalizers: ctx.state.orderForm.totalizers,
+          clientProfileData: ctx.state.orderForm.clientProfileData,
+          shippingData: ctx.state.orderForm.shippingData,
+          paymentData: ctx.state.orderForm.paymentData.payments,
+          customData: ctx.state.orderForm.customData,
+        },
         externalEndpointResponse: ctx.state.externalProviderResponse,
       },
     },
