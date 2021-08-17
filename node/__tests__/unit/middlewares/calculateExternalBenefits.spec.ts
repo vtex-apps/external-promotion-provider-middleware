@@ -8,7 +8,7 @@ jest.mock('../../../utils')
 
 describe('calculateExternalBenefits', () => {
   const mainCtx = {
-    state: { orderForm: { items: [] } },
+    state: { orderForm: { items: [], paymentData: { payments: '' } } },
     req: {},
     clients: {
       externalProvider: {
@@ -84,7 +84,7 @@ describe('calculateExternalBenefits', () => {
   it('should not call next function when the items is [] in externalProviderResponse', async () => {
     const ctx = {
       state: {
-        orderForm: { items: [{ id: 1 }] },
+        orderForm: { items: [{ id: 1 }], paymentData: { payments: '' } },
       },
       req: {},
       clients: {
@@ -108,7 +108,7 @@ describe('calculateExternalBenefits', () => {
   it('should not set the response body when the route does not match /simulation and when items array is not empty', async () => {
     const ctx = {
       state: {
-        orderForm: { items: [] },
+        orderForm: { items: [], paymentData: { payments: '' } },
       },
       req: {},
       clients: {

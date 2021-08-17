@@ -2,6 +2,34 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.24.0-beta.0](https://github.com/vtex/external-promotion-provider-middleware/compare/v0.22.0-beta.7...v0.24.0-beta.0) (2021-08-17)
+
+
+### Features
+
+* improve error handling on getOrderFormById method ([20309a2](https://github.com/vtex/external-promotion-provider-middleware/commit/20309a2e4d6a6f5d71160734e6582c85ad0a3efa))
+* shorten payload of log sent to splunk ([ab503b4](https://github.com/vtex/external-promotion-provider-middleware/commit/ab503b49c914c07b4c29febd8d188d6cf810310a))
+
+
+### Bug Fixes
+
+* fix email change when ger orderform has auth ([9030cbb](https://github.com/vtex/external-promotion-provider-middleware/commit/9030cbb701de77ee336efa04224364eb7b72deb3))
+
+
+### Chores
+
+* bump version to stable ([dde9336](https://github.com/vtex/external-promotion-provider-middleware/commit/dde93364838a1bc6d56f585ad852840af60cd3eb))
+
+
+### Refacts
+
+* refact to spread state in context ([3aae792](https://github.com/vtex/external-promotion-provider-middleware/commit/3aae792bb286143ddcb617986447a230ee185c2e))
+
+
+### Tests
+
+* adjust test context to include payments property ([2a61a07](https://github.com/vtex/external-promotion-provider-middleware/commit/2a61a07d73e3b7130e0cdfc009e8ca107953bfbc))
+
 ## [0.23.0](https://github.com/vtex/external-promotion-provider-middleware/compare/v0.22.0-beta.7...v0.22.0) (2021-08-16)
 
 ## [0.22.0-beta.7](https://github.com/vtex/external-promotion-provider-middleware/compare/v0.22.0-beta.5...v0.22.0-beta.7) (2021-08-10)
