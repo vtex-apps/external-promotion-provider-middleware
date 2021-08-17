@@ -25,7 +25,8 @@ const getOrderFormById = async (ctx: Context, next: () => Promise<any>) => {
     ctx.vtex.logger.error({
       getOrderFormById: {
         status: 'failed',
-        content: ctx.state.orderFormId,
+        error: error.message,
+        orderFormId: ctx.state.orderFormId,
       },
     })
     ctx.status = 400
