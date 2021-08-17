@@ -39,19 +39,31 @@ const calculateExternalBenefits = async (
     return
   }
 
+  const {
+    orderForm: {
+      items,
+      totalizers,
+      clientProfileData,
+      shippingData,
+      paymentData: { payments },
+      customData,
+    },
+    externalProviderResponse,
+  } = ctx.state
+
   ctx.vtex.logger.info({
     calculateExternalBenefits: {
-      status: 'External endpoint returned',
+      status: 'External endpoint successfully returned',
       content: {
         orderForm: {
-          items: ctx.state.orderForm.items,
-          totalizers: ctx.state.orderForm.totalizers,
-          clientProfileData: ctx.state.orderForm.clientProfileData,
-          shippingData: ctx.state.orderForm.shippingData,
-          paymentData: ctx.state.orderForm.paymentData.payments,
-          customData: ctx.state.orderForm.customData,
+          items,
+          totalizers,
+          clientProfileData,
+          shippingData,
+          payments,
+          customData,
         },
-        externalEndpointResponse: ctx.state.externalProviderResponse,
+        externalProviderResponse,
       },
     },
   })
