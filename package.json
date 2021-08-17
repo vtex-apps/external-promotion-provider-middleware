@@ -2,14 +2,14 @@
   "name": "promotion-provider-middleware",
   "private": true,
   "license": "UNLICENSED",
-  "version": "0.23.0",
+  "version": "0.24.0-beta.0",
   "scripts": {
     "lint": "eslint --ext js,jsx,ts,tsx .",
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json}\"",
     "minor": "HUSKY_SKIP_HOOKS=1 standard-version --release-as minor",
     "major": "HUSKY_SKIP_HOOKS=1 standard-version --release-as major",
     "patch": "HUSKY_SKIP_HOOKS=1 standard-version --release-as patch",
-    "beta": "HUSKY_SKIP_HOOKS=1 standard-version --prerelease beta",
+    "beta": "HUSKY_SKIP_HOOKS=1 standard-version --release-as minor --prerelease beta",
     "test:node": "cd node && yarn test && cd .."
   },
   "husky": {
