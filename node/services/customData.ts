@@ -28,7 +28,7 @@ const setCustomData = async ({
 
   const value = providedExternalPromotions
     ? JSON.stringify(providedExternalPromotions)
-    : 'No external promotions were applied'
+    : '[]'
 
   try {
     await client.setSingleCustomData(
