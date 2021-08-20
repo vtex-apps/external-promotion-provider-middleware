@@ -10,7 +10,7 @@ const getOrderFormById = async (client: Checkout, orderFormId: string) => {
 
     return orderForm
   } catch (error) {
-    throw new Error('Error when fetching orderform')
+    throw new Error(`Error when fetching orderform. Returned error: ${error}`)
   }
 }
 
@@ -40,7 +40,9 @@ async function deleteAllManualPrices(
 
     return orderFormWithoutManualPrices
   } catch (error) {
-    throw new Error('Error when removing all manual prices from orderform')
+    throw new Error(
+      `Error when removing all manual prices from orderform. Returned error: ${error}`
+    )
   }
 }
 
