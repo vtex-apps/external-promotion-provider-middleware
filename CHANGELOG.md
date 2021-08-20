@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.24.0-beta.2](https://github.com/vtex/external-promotion-provider-middleware/compare/v0.24.0-beta.1...v0.24.0-beta.2) (2021-08-19)
+
+
+### Bug Fixes
+
+* adjust endpoint config suggested when error is thrown ([19e5e95](https://github.com/vtex/external-promotion-provider-middleware/commit/19e5e951591751dc0553e88380490de778629e24))
+
 ## [0.24.0-beta.1](https://github.com/vtex/external-promotion-provider-middleware/compare/v0.24.0-beta.0...v0.24.0-beta.1) (2021-08-18)
 
 
