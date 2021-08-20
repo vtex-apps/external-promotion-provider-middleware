@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.24.0-beta.4](https://github.com/vtex/external-promotion-provider-middleware/compare/v0.24.0-beta.3...v0.24.0-beta.4) (2021-08-20)
+
+
+### Features
+
+* handle no items error in orderForm before deleting manualPrices ([4360943](https://github.com/vtex/external-promotion-provider-middleware/commit/4360943e507a0bfc834adac99db407be05c16284))
+* improve error message ([50a4694](https://github.com/vtex/external-promotion-provider-middleware/commit/50a4694508437f715e4fc901bc25511c66ef6a61))
+
 ## [0.24.0-beta.3](https://github.com/vtex/external-promotion-provider-middleware/compare/v0.24.0-beta.2...v0.24.0-beta.3) (2021-08-20)
 
 ## [0.24.0-beta.2](https://github.com/vtex/external-promotion-provider-middleware/compare/v0.24.0-beta.1...v0.24.0-beta.2) (2021-08-19)
