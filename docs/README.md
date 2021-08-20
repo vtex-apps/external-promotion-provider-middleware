@@ -19,6 +19,8 @@ Upon saving the settings, this application will set the whole environment to com
 
 Upon installing, the public routes will become instantly available to use.
 
+It's worth mentioning that Order Authorization configurations could interfere with key functional aspects of this application. If the account has any Manual Discount rules configured, make sure to verify if the promotions applied by the external provider comply with the range set in Manual Discount rules. The reason for the impact is that this application makes use of [Update cart items](https://developers.vtex.com/vtex-rest-api/reference/cart-update#itemsupdate) to apply discounts.
+
 ## Syntax and Supported Routes
 
 ### Notification:
