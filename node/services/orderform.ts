@@ -20,6 +20,10 @@ async function deleteAllManualPrices(
 ) {
   const { items, orderFormId } = orderForm
 
+  if (!items.length) {
+    throw new Error("Found no items inside orderForm's items array")
+  }
+
   const orderItems = items.map((_, index) => {
     return {
       index,
