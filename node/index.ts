@@ -18,7 +18,7 @@ import type { CheckoutOrderForm } from './typings/global'
 import type { ExternalPromotionsRequestProtocol } from './typings/protocol/request'
 import type { ExternalPromotionsResponseProtocol } from './typings/protocol/response'
 
-const TIMEOUT_MS = 1000
+const TIMEOUT_MS = 2500
 
 // The @vtex/api HttpClient respects Cache-Control headers and uses the provided cache.
 const memoryCache = new LRUCache<string, any>({ max: 5000 })
