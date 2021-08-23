@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.24.0-beta.5](https://github.com/vtex/external-promotion-provider-middleware/compare/v0.24.0-beta.4...v0.24.0-beta.5) (2021-08-23)
+
+
+### Features
+
+* increase timeout ([52495b2](https://github.com/vtex/external-promotion-provider-middleware/commit/52495b2e9a6725148b53f1de813506dabf97e917))
+
 ## [0.24.0-beta.4](https://github.com/vtex/external-promotion-provider-middleware/compare/v0.24.0-beta.3...v0.24.0-beta.4) (2021-08-20)
 
 
