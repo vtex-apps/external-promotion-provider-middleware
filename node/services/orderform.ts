@@ -41,7 +41,9 @@ async function deleteAllManualPrices(
     return orderFormWithoutManualPrices
   } catch (error) {
     throw new Error(
-      `Error when removing all manual prices from orderform. Returned error: ${error}`
+      `Error when removing all manual prices from orderform. Returned error: ${JSON.stringify(
+        error
+      )}`
     )
   }
 }
