@@ -12,6 +12,7 @@ const getOrderFormById = async (ctx: Context, next: () => Promise<any>) => {
 
     ctx.state.orderForm = await orderform.deleteAllManualPrices(
       ctx.clients.checkout,
+      ctx.vtex.logger,
       currentOrderform
     )
 

@@ -46,6 +46,11 @@ describe('orderform', () => {
             updateItems: jest.fn().mockResolvedValueOnce({ items: [] }),
           },
         },
+        vtex: {
+          logger: {
+            error: (message) => console.error(message),
+          },
+        },
       }
 
       const currentOrderform = {
@@ -57,6 +62,7 @@ describe('orderform', () => {
 
       const orderform = await orderformService.deleteAllManualPrices(
         ctx.clients.checkout as any,
+        ctx.vtex.logger as any,
         currentOrderform as any
       )
 
@@ -84,6 +90,11 @@ describe('orderform', () => {
             updateItems: jest.fn().mockRejectedValueOnce(''),
           },
         },
+        vtex: {
+          logger: {
+            error: (message) => console.error(message),
+          },
+        },
       }
 
       const currentOrderform = { items: [], orderformId: '1' }
@@ -91,6 +102,7 @@ describe('orderform', () => {
       await expect(
         orderformService.deleteAllManualPrices(
           ctx.clients.checkout as any,
+          ctx.vtex.logger as any,
           currentOrderform as any
         )
       ).rejects.toThrowError(

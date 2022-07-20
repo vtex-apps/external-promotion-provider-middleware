@@ -1,3 +1,4 @@
+import type { Logger } from '@vtex/api'
 import type { Checkout } from '@vtex/clients'
 
 import type { CheckoutOrderForm } from '../typings/global'
@@ -16,6 +17,7 @@ const getOrderFormById = async (client: Checkout, orderFormId: string) => {
 
 async function deleteAllManualPrices(
   client: Checkout,
+  logger: Logger,
   orderForm: CheckoutOrderForm
 ) {
   const { items, orderFormId } = orderForm
@@ -40,10 +42,9 @@ async function deleteAllManualPrices(
 
     return orderFormWithoutManualPrices
   } catch (error) {
+    logger.error({ error })
     throw new Error(
-      `Error when removing all manual prices from orderform. Returned error: ${JSON.stringify(
-        error
-      )}`
+      `Error when removing all manual prices from orderform. Returned error: ${error}`
     )
   }
 }
