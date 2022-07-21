@@ -19,5 +19,5 @@
     "lint": "tsc --noEmit --pretty",
     "test": "vtex-test-tools test --collectCoverage"
   },
-  "version": "0.24.2"
+  "version": "0.24.3"
 }
