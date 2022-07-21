@@ -55,6 +55,7 @@ const calculateExternalBenefits = async (
     calculateExternalBenefits: {
       status: 'External endpoint successfully returned',
       content: {
+        orderFormId: ctx.state.orderFormId,
         orderForm: {
           items,
           totalizers,
@@ -73,7 +74,10 @@ const calculateExternalBenefits = async (
     !ctx.state.externalProviderResponse.items.length
   ) {
     ctx.status = 200
-    ctx.body = { message: 'No promotions applied, Items array was sent empty' }
+    ctx.body = {
+      message:
+        'No promotions applied, Items array was sent empty by the external provider',
+    }
 
     return
   }
