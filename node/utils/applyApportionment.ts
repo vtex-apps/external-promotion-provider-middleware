@@ -79,7 +79,7 @@ export function applyApportionment(
     const netTotalPrice =
       totalPrice * (1 - discount.percentualDiscount) + discount.nominalDiscount
 
-    const unitPrice = Math.floor(netTotalPrice / totalQuantity)
+    const unitPrice = Math.ceil(netTotalPrice / totalQuantity)
 
     return {
       index: item.variations[0].requestIndex,
