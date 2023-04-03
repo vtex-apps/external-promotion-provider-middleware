@@ -1,7 +1,10 @@
 import { applyApportionment, validateProviderResponse } from '../utils'
 import { customData } from '../services'
+import { any } from 'ramda';
 
 const applyManualPrices = async (ctx: Context, next: () => Promise<any>) => {
+
+  let orderForm = any
   try {
     await validateProviderResponse.schemaConsistency(
       ctx.state.externalProviderResponse
@@ -16,20 +19,21 @@ const applyManualPrices = async (ctx: Context, next: () => Promise<any>) => {
       ctx.state.parsedRequestProtocol,
       ctx.state.externalProviderResponse
     )
-
+      console.log(apportionedPayload)
     await ctx.clients.checkout.updateItems(
       ctx.state.orderFormId as string,
       apportionedPayload,
       'AUTH_TOKEN'
     )
 
-    await customData.setCustomData({
+    orderForm = await customData.setCustomData({
       client: ctx.clients.checkout,
       orderForm: ctx.state.orderForm,
       externalProviderResponse: ctx.state.externalProviderResponse,
     })
 
-    ctx.status = 204
+    ctx.status = 200
+    ctx.body = orderForm
   } catch (err) {
     ctx.vtex.logger.error({
       applyManualPrices: {

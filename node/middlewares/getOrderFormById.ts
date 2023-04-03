@@ -10,18 +10,14 @@ const getOrderFormById = async (ctx: Context, next: () => Promise<any>) => {
       ctx.state.orderFormId as string
     )
 
-    ctx.state.orderForm = await orderform.deleteAllManualPrices(
-      ctx.clients.checkout,
-      ctx.vtex.logger,
-      currentOrderform
-    )
-
+    ctx.state.orderForm = currentOrderform
     // this method is necessary to clean customData
-    await customData.setCustomData({
+    customData.setCustomData({
       client: ctx.clients.checkout,
       orderForm: ctx.state.orderForm,
       externalProviderResponse: null,
     })
+
   } catch (error) {
     ctx.vtex.logger.error({
       getOrderFormById: {
@@ -32,7 +28,6 @@ const getOrderFormById = async (ctx: Context, next: () => Promise<any>) => {
     })
     ctx.status = 400
     ctx.body = { error: error.message }
-
     return
   }
 

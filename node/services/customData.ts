@@ -14,7 +14,7 @@ const setCustomData = async ({
   client,
   orderForm,
   externalProviderResponse,
-}: Args) => {
+}: Args):Promise<any> => {
   const targetCustomAppId = 'promotion-provider-middleware'
 
   const providedExternalPromotions = externalProviderResponse?.items.map(
@@ -31,7 +31,7 @@ const setCustomData = async ({
     : '[]'
 
   try {
-    await client.setSingleCustomData(
+    const ret = await client.setSingleCustomData(
       orderForm.orderFormId,
       {
         appId: targetCustomAppId,
@@ -40,6 +40,7 @@ const setCustomData = async ({
       },
       'AUTH_TOKEN'
     )
+    return ret
   } catch (error) {
     throw new Error(`It was not possible to set customData. ${error}`)
   }

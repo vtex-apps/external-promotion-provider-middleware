@@ -1,5 +1,5 @@
 import { json } from 'co-body'
-
+import { orderform } from '../services'
 import { parseOrderFormToProtocol } from '../utils/index'
 
 const calculateExternalBenefits = async (
@@ -73,6 +73,12 @@ const calculateExternalBenefits = async (
     Array.isArray(ctx.state.externalProviderResponse.items) &&
     !ctx.state.externalProviderResponse.items.length
   ) {
+
+    await orderform.deleteAllManualPrices(
+      ctx.clients.checkout,
+      ctx.vtex.logger,
+      ctx.state.orderForm
+    )
     ctx.status = 200
     ctx.body = {
       message:
