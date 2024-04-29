@@ -1,5 +1,10 @@
 # Promotion Provider Middleware
 
+##  ⚠️ Maintenance ⚠️
+*Starting June 1st 2023, this application will no longer be maintained by VTEX.*
+
+---
+
 This app allows external providers to apply promotions to any SKUs in the shopping cart during an end-user checkout experience.
 
 ## Getting Started
