@@ -1,9 +1,8 @@
 # Promotion Provider Middleware
 
-##  ⚠️ Maintenance ⚠️
-*Starting June 1st 2023, this application will no longer be maintained by VTEX.*
+[<i class="fa-brands fa-github"></i> Source code](https://github.com/vtex-apps/external-promotion-provider-middleware)
 
----
+> ⚠️ This app is no longer maintained by VTEX. This means support and maintenance are no longer provided.
 
 This app allows external providers to apply promotions to any SKUs in the shopping cart during an end-user checkout experience.
 
