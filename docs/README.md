@@ -25,7 +25,7 @@ Upon installation, the public routes will become instantly available to use.
 
 It's worth mentioning that Order Authorization configurations could interfere with key functional aspects of this application. If the account has any Manual Discount rules configured, verify that the promotions applied by the external provider fall within the configured ranges. The impact is due to this application using [Update cart items](https://developers.vtex.com/vtex-rest-api/reference/cart-update#itemsupdate) to apply discounts.
 
-## Syntax and Supported Routes
+## Syntax and supported routes
 
 ### Notification:
 `POST /_v/promotion-provider/notification`
@@ -125,7 +125,7 @@ The `matchedParameters` property should have `key` and `value` as strings with a
 
 After the external provider response, if it all went well, the middleware will use the API [Update cart items](https://developers.vtex.com/vtex-rest-api/reference/cart-update#itemsupdate) to update the prices in the cart, respecting the discounts sent.
 
-An important reminder: every promotion configured in the promotions module has a flag called `Allows accumulate with manual prices`. If this flag is checked, the external promotion will be applied first, and only then will the other promotions apply. If this flag remains unchecked, the external promotion will not be applied when the external promotion is applied.
+An important reminder: every promotion configured in the promotions module has a flag called `Allows accumulate with manual prices`. If this flag is checked, the external promotion will be applied first, and only then will the other promotions apply. 
 
 ### Example
 
